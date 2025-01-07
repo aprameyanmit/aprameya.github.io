@@ -50,12 +50,12 @@
 <section id="home">
   <div class="divmainlanding">
     <div class="divfilter">
-
       <div id="timer-container">
+        <img src="media/typography.png" class="imgcollegebanner">
         <div id="timer">
-            <h1 class="h1aprameya">Aprameya</h1>
+            <!-- <h1 class="h1aprameya">Aprameya</h1> -->
             <span id="days">00</span>&nbsp; Days &nbsp;<br class="brdisplay">
-            <span id="hours">00</span>&nbsp; Hours &nbsp;<br class="brdisplay">
+            <span id="hours">00</span>&nbsp; Hours &nbsp;<br>
             <span id="minutes">00</span>&nbsp; Minutes &nbsp;<br class="brdisplay">
             <span id="seconds">00</span>&nbsp; Seconds &nbsp;<br class="brdisplay">
         </div>
@@ -140,7 +140,8 @@ to follow the time schedule.</li>
 
 <section id="contact">
   <br><br><br><br>
-  <h1 class="h1head">Co-ordinators</h1>
+  <h1 class="h1head">Advisory Panel</h1>
+  <br>
   <div class="divcontact">
     <div class="divbox">
         <img src="media/RohitPunja.png" class="imgcontact">
@@ -163,9 +164,19 @@ to follow the time schedule.</li>
     <div class="divbox">
         <img src="media/teacher.png" class="imgcontact">
         <p class="pname">Mrs. Sowmya K</p>
-        <p>Teacher Co-ordinator</p>
+        <p>Faculty Co-ordinator</p>
         <p><a href="tel:" class="aphonelink"></a></p>
     </div>
+    <div class="divbox">
+        <img src="media/not.jpg" class="imgcontact">
+        <p class="pname">Mr. Vidya Sagar S D</p>
+        <p>Faculty Co-ordinator</p>
+        <p><a href="tel:" class="aphonelink"></a></p>
+    </div>
+  </div>
+  <br>
+  <h1 class="h1head">Co-ordinators</h1>
+  <div class="divcontact">
     <div class="divbox">
         <img src="media/sparks_president.png" class="imgcontact">
         <p class="pname">Sandesh Devaiah</p>
@@ -197,9 +208,15 @@ to follow the time schedule.</li>
         <p><a href="tel:" class="aphonelink"></a></p>
     </div>
     <div class="divbox">
-        <img src="media/not.jpg" class="imgcontact">
-        <p class="pname"></p>
-        <p>Sparks</p>
+        <img src="media/kishan.png" class="imgcontact">
+        <p class="pname">Kishan M Naik</p>
+        <p>Graphics Designer</p>
+        <p><a href="tel:" class="aphonelink"></a></p>
+    </div>
+    <div class="divbox">
+        <img src="media/adithya.png" class="imgcontact">
+        <p class="pname">V Adithya</p>
+        <p>Web Designer</p>
         <p><a href="tel:" class="aphonelink"></a></p>
     </div>
   </div>
@@ -209,7 +226,7 @@ to follow the time schedule.</li>
 <footer>
   <div class="container">
     <div class="divfooter">
-      <img src="media/nmit.svg" class="imgcollegebanner">
+      <img src="media/1.png" class="imgcollegebanner">
       <p class="pdept">Dept. Of MCA</p>
       <p class="pdept">IN ASSOCIATION WITH SPARKS</p>
       <p class="pdept">&copy; NMIT, 2025</p>
@@ -242,7 +259,7 @@ to follow the time schedule.</li>
             document.getElementById('seconds').textContent = seconds;
         } else {
             clearInterval(timerInterval); 
-            document.getElementById('timer').textContent = "BATTLE\u00A0\u00A0\u00A0\u00A0IS\u00A0\u00A0\u00A0ON";
+            document.getElementById('timer').textContent = "The\u00A0\u00A0\ Battlefield\u00A0\u00A0\ of\u00A0\u00A0\ Destiny";
         }
     }
     const timerInterval = setInterval(updateClock, 1000);
