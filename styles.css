@@ -19,6 +19,9 @@ br.brdisplay {
     display: none;
 }
 /*nav*/
+nav.navbar.navbar-expand-lg.navbar-light.navstyle {
+    z-index: 1;
+}
 .navbar{
     background-color: #001f3c;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='20' height='20' fill-opacity='0.35' fill='%23CA9000'/%3E%3C/svg%3E");
@@ -148,21 +151,60 @@ h1.h1head {
 /*about end*/
 
 /*event*/
-.diveventbox {
+
+.container {
+      max-width: 1200px;
+      margin: 0 auto;
+}
+.event-container {
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #ca9000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    height: 320px;
+    width: 100%;
+    max-width: 280px;
+}
+.event-container:hover {
+    transform: translateY(-5px);
+}
+.event-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.event-content {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
-.divevent {
-    border: 2px solid #CA9000;
-    border-radius: 15px;
-    width: 30%;
-    height: 40vH;
-    color: white;
-    margin: 10px;
+.event-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ca9000;
+}
+.learn-more-btn {
+    display: inline-block;
+    background-color: #ca9000; 
+    color: #ffffff;
+    text-decoration: none; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 200px;
+    transition: background-color 0.3s ease;
+}
+.learn-more-btn:hover {
+    color: #ca9000;
+    background-color: #ffffff;
 }
 li.lirules {
     text-align: justify;
@@ -170,18 +212,34 @@ li.lirules {
     font-size: 1.2em;
     font-weight: 600;
 }
-button.btnregister {
-    width: 20%;
-    height: 50px;
-    font-size: 1.5em;
-    border: 5px solid #ca9000;
-    border-radius: 50px; 
+.register-btn {
+  background-color: #ca9000; 
+  color: white; 
+  padding: 14px 20px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 1.5em; 
+  border-radius: 8px; 
+  transition: all 0.3s ease;
+}
+.register-btn:hover {
+  color: #ca9000;
+  background-color: #ffffff; 
+  transform: scale(1.05);
+}
+.diveventbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    align-content: center;
+    align-items: center;
 }
 /*event end*/
 
 /*contact*/
 .divbox {
-    width: 250px;
     height: auto;
     margin: 10px;
 }
