@@ -25,6 +25,9 @@ ul.ulrules {
 button.btnregister {
     width: auto;
 }
+.divflex.divcenter {
+    display: block;
+}
 }
 
 
@@ -54,5 +57,24 @@ ul.ulrules {
 button.btnregister {
     width: auto;
 }
+.divflex.divcenter {
+        display: flex;
+        flex-direction: column;
+}
 
 }
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .event-title {
+        font-size: 1.2rem;
+    }
+    .event-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    .event-container {
+        height: auto;
+    }
+}
+
