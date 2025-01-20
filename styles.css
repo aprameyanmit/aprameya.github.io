@@ -140,6 +140,7 @@ p.pintro {
 }
 #timer span {
     font-weight: bold;
+    letter-spacing: 10px;
 }
 /*Timer end*/
 /*land page end*/
@@ -153,9 +154,10 @@ h1.h1head {
     font-family: gisbon, sans-serif;
     background-image: url('media/layer.jpg');
     background-size: cover;
-/*    background-position: center; */
+    background-position: center; 
     -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px; 
 }
 /*about end*/
 
@@ -354,9 +356,10 @@ h5.h5head,h2.h2head,h3.h3head {
     font-family: gisbon, sans-serif;
     background-image: url('media/layer.jpg');
     background-size: cover;
-/*    background-position: center; */
+    background-position: center; 
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
+    letter-spacing: 3px;
 }
 
 /*hackathon page*/
@@ -443,12 +446,14 @@ h5.h5head,h2.h2head,h3.h3head {
 }
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: center;
 }
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .card img {
+    width: 150px;
     height: 150px;
     margin: 10px 0px 5px 0px;
 }
