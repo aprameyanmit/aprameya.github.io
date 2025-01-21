@@ -314,7 +314,14 @@ p.pdept1 {
     font-size: 0.8em;
     font-weight: 900;
 }
-
+i#sociallink {
+    color: white;
+    font-size: 2em;
+    margin: 10px;
+}
+i#sociallink:hover {
+    color: #ca9000;
+}
 /*footer end*/
 /*Sponsers*/
 img.imgsponsorgold {
