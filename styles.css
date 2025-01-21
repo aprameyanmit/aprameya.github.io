@@ -316,10 +316,13 @@ img.imgsponsorgold {
     margin: 3%;
 }
 img.imgsponsorsilver {
-    width: 10%;
-    margin: 3%;
+    width: 12%;
+    margin: 2%;
 }
-
+img.imgsponsor {
+    width: 7%;
+    margin: 2%;
+}
 
 
 /*sponser end*/
