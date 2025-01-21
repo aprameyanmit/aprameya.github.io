@@ -278,6 +278,12 @@ p.peventname {
     height: 150px;
     border-radius: 50%;
 }
+.imgcontactdesign {
+    border: 3px solid #ca9000;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
 .pname {
     color: #ca9000;
     font-family: 'gothambold';
