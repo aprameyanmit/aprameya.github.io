@@ -2492,6 +2492,9 @@ h1, h2, h3, h4, h5, h6 {
 
     .fest-logo {
         max-width: 400px;
+        /* Disable animations on mobile for performance */
+        animation: none !important;
+        filter: drop-shadow(0 10px 40px rgba(255, 215, 0, 0.5)) !important;
     }
 
     .hero-tagline {
@@ -2822,6 +2825,12 @@ h1, h2, h3, h4, h5, h6 {
 
 
 @media (max-width: 480px) {
+    .fest-logo {
+        /* Disable animations on small mobile screens for performance */
+        animation: none !important;
+        filter: drop-shadow(0 8px 30px rgba(255, 215, 0, 0.4)) !important;
+    }
+
     .hero-tagline {
         font-size: 1.5rem;
     }
