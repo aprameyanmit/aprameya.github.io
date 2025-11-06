@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chimera Chase - Aprameya Fest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Philosopher:wght@400;700&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../event-style.css">
+    <style>
+        @media (max-width: 768px) {
+            .logo {
+                width: 240px !important;
+                max-height: 80px !important;
+                padding-top: 20px !important;
+                margin-left: -60px !important;
+            }
+            
+            .nav-left {
+                position: fixed !important;
+                left: -5px !important;
+                top: 5px !important;
+                z-index: 10001 !important;
+            }
+            
+            .hamburger {
+                position: fixed !important;
+                top: 5px !important;
+                right: 10px !important;
+                z-index: 10002 !important;
+                width: 45px !important;
+                height: 35px !important;
+            }
+            
+            .house-logo {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+    <div class="fog-overlay"></div>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; z-index: 9999 !important;">
+        <div class="nav-container" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; z-index: 10000 !important;">
+            <div class="nav-left">
+                <img src="../images/clg.png" alt="Fest Logo" class="logo">
+            </div>
+            <div class="nav-center">
+                <img src="../images/sparx.png" alt="House Logo" class="house-logo">
+            </div>
+            <div class="nav-right">
+                <!-- Desktop Navigation Menu -->
+                <ul class="desktop-nav">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">All Events ▼</a>
+                        <ul class="desktop-dropdown">
+                            <li><a href="arachne-webworks.html" class="dropdown-link">Arachne Webworks (Web Design)</a></li>
+                            <li><a href="athenas-owl.html" class="dropdown-link">Athena's Owl (Tech Talk)</a></li>
+                            <li><a href="chimera-chase.html" class="dropdown-link">Chimera Chase (Surprise Event)</a></li>
+                            <li><a href="dragons-den.html" class="dropdown-link">Dragon's Den (Start Up Pitch)</a></li>
+                            <li><a href="griffins-command.html" class="dropdown-link">Griffin's Command (IT Manager)</a></li>
+                            <li><a href="hydra-hacks.html" class="dropdown-link">Hydra Hacks (Hackathon)</a></li>
+                            <li><a href="kraken-clash.html" class="dropdown-link">Kraken Clash (Gaming)</a></li>
+                            <li><a href="pegasus-frames.html" class="dropdown-link">Pegasus Frames (Photography)</a></li>
+                            <li><a href="phoenix-code.html" class="dropdown-link">Phoenix Code (Coding)</a></li>
+                            <li><a href="sphinx-quest.html" class="dropdown-link">Sphinx Quest (IT Quiz)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <!-- Mobile Hamburger -->
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" id="navMenu">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">APRAMEYA</h2>
+            <button class="close-btn" id="closeMenu">×</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="../index.html#home" class="menu-link">
+                    <span class="menu-icon">�</span>
+                    Home
+                </a>
+            </li>
+            <li class="menu-item dropdown">
+                <a href="#" class="menu-link dropdown-toggle">
+                    <span class="menu-icon">🧭</span>
+                    Navigate Events
+                </a>
+                                            <div class="dropdown-menu">
+                    <a href="arachne-webworks.html" class="dropdown-link">Arachne Webworks (Web Design)</a>
+                    <a href="athenas-owl.html" class="dropdown-link">Athena's Owl (Tech Talk)</a>
+                    <a href="chimera-chase.html" class="dropdown-link">Chimera Chase (Surprise Event)</a>
+                    <a href="dragons-den.html" class="dropdown-link">Dragon's Den (Start Up Pitch)</a>
+                    <a href="griffins-command.html" class="dropdown-link">Griffin's Command (IT Manager)</a>
+                    <a href="hydra-hacks.html" class="dropdown-link">Hydra Hacks (Hackathon)</a>
+                    <a href="kraken-clash.html" class="dropdown-link">Kraken Clash (Gaming)</a>
+                    <a href="pegasus-frames.html" class="dropdown-link">Pegasus Frames (Photography)</a>
+                    <a href="phoenix-code.html" class="dropdown-link">Phoenix Code (Coding)</a>
+                    <a href="sphinx-quest.html" class="dropdown-link">Sphinx Quest (IT Quiz)</a>
+                </div>
+            </li>
+            <li class="menu-item">
+                <a href="../index.html#contact" class="menu-link">
+                    <span class="menu-icon">📞</span>
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>    <!-- Main Content -->
+    <main class="event-page-container">
+        <!-- Header Section -->
+        <div class="event-header">
+            <h1 class="event-title">
+                C h i m e r a C h a s e
+                <p class="event-subtitle">(Surprise Event)</p>
+            </h1>
+        </div>
+
+        <!-- Single Full-Width Rules Section -->
+        <div class="rules-section">
+            <div class="unique-rules-card">
+                <div class="rules-header">
+                    <h2>Event Rules & Guidelines</h2>
+                    <div class="rules-subtitle">Essential guidelines for all participants</div>
+                </div>
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <div class="rule-icon">🎭</div>
+                        <div class="rule-content">
+                            <p>Event format and challenges will be revealed on the day of the competition.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">👥</div>
+                        <div class="rule-content">
+                            <p>Team formation will be decided based on the nature of revealed challenges.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">🧠</div>
+                        <div class="rule-content">
+                            <p>Be prepared for various types of challenges requiring different skill sets.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">⚡</div>
+                        <div class="rule-content">
+                            <p>Challenges may test problem-solving, creativity, and quick decision-making.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">🎯</div>
+                        <div class="rule-content">
+                            <p>Details and rules for each round will be revealed on the spot.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">🏆</div>
+                        <div class="rule-content">
+                            <p>Judging criteria will vary based on the specific challenges presented.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beautiful Register Button -->
+        <div class="register-section">
+            <button class="beautiful-register-btn">
+                <span class="btn-text">Registration Opens Soon</span>
+                <span class="btn-icon">🚀</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+
+        <!-- Two Column Layout: Registration & Prizes -->
+        <div class="content-row">
+            <div class="content-column">
+                <div class="info-card">
+                    <h2>Registration</h2>
+                    <div class="single-fee-structure">
+                        <div class="fee-display">
+                            <span class="fee-amount">₹250/-</span>
+                            <span class="fee-description">Per Team Registration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-column">
+                <div class="info-card">
+                    <h2>Prize Pool</h2>
+                    <div class="prizes">
+                        <div class="prize-item">
+                            <span class="prize-medal">🏆</span>
+                            <div>
+                                <strong>1st Prize</strong>
+                                <span class="prize-amount">₹2000/-</span>
+                            </div>
+                        </div>
+                        <div class="prize-item">
+                            <span class="prize-medal">🥈</span>
+                            <div>
+                                <strong>2nd Prize</strong>
+                                <span class="prize-amount">₹1500/-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="certificates">🎓 Certificates for all participants</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Combined Coordinators Section -->
+        <div class="all-coordinators-section chimera-coordinators">
+            <div class="coordinators-container">
+                <!-- Faculty Coordinator (Left) -->
+                <div class="faculty-side">
+                    <h3 class="coordinator-sub-title">Faculty Coordinator</h3>
+                    <div class="coordinator-card single">
+                        <div class="coordinator-image">
+                            <img src="../images/photos/deeksha.png" alt="Deeksha" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="image-placeholder">👨‍🏫</div>
+                        </div>
+                        <div class="coordinator-info">
+                            <h3 class="coordinator-name">Deeksha</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Coordinators (Right) -->
+                <div class="students-side">
+                    <h3 class="coordinator-sub-title">Student Coordinators</h3>
+                    <div class="coordinators-grid">
+                        <div class="coordinator-card">
+                            <div class="coordinator-image">
+                                <img src="../images/photos/Supritha - Supritha D.jpg" alt="Supritha D" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="image-placeholder">👩‍🎓</div>
+                            </div>
+                            <div class="coordinator-info">
+                                <h3 class="coordinator-name">Supritha D</h3>
+                                <p class="contact">📱 7795405250</p>
+                            </div>
+                        </div>
+
+                        <div class="coordinator-card">
+                            <div class="coordinator-image">
+                                <img src="../images/photos/Lohith MS.jpeg" alt="Lohith MS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="image-placeholder">👨‍🎓</div>
+                            </div>
+                            <div class="coordinator-info">
+                                <h3 class="coordinator-name">Lohith MS</h3>
+                                <p class="contact">📱 9353735871</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="simple-mobile-footer">
+        <div class="simple-footer-content">
+            <p class="college-name">Nitte Meenakshi Institute of Technology</p>
+            <div class="footer-links-simple">
+                <p>Department of MCA</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ENSURE MENU IS CLOSED ON PAGE LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            const navMenu = document.getElementById('navMenu');
+            const menuBackdrop = document.getElementById('menuBackdrop');
+            const hamburger = document.getElementById('hamburger');
+            const navbar = document.getElementById('navbar');
+            const navContainer = document.querySelector('.nav-container');
+            
+            // FORCE NAVBAR AND NAV-CONTAINER TO BE FIXED ON LOAD
+            if (navbar) {
+                navbar.style.setProperty('position', 'fixed', 'important');
+                navbar.style.setProperty('top', '0', 'important');
+                navbar.style.setProperty('left', '0', 'important');
+                navbar.style.setProperty('width', '100%', 'important');
+                navbar.style.setProperty('z-index', '9999', 'important');
+            }
+            
+            if (navContainer) {
+                navContainer.style.setProperty('position', 'fixed', 'important');
+                navContainer.style.setProperty('top', '0', 'important');
+                navContainer.style.setProperty('left', '0', 'important');
+                navContainer.style.setProperty('width', '100%', 'important');
+                navContainer.style.setProperty('z-index', '10000', 'important');
+            }
+            
+            // Force close menu on page load
+            if (navMenu) navMenu.classList.remove('active');
+            if (menuBackdrop) menuBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Reset hamburger animation
+            if (hamburger) {
+                const spans = hamburger.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.style.transform = '';
+                    span.style.opacity = '1';
+                });
+            }
+        });
+
+        // NAVBAR SCROLL EFFECT
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const navContainer = document.querySelector('.nav-container');
+            const logo = document.querySelector('.logo');
+            
+            // Only change logo on scroll for desktop (screen width > 768px)
+            // Force navbar and nav-container to stay fixed
+            navbar.style.setProperty('position', 'fixed', 'important');
+            navbar.style.setProperty('top', '0', 'important');
+            navbar.style.setProperty('left', '0', 'important');
+            navbar.style.setProperty('width', '100%', 'important');
+            navbar.style.setProperty('z-index', '9999', 'important');
+            
+            if (navContainer) {
+                navContainer.style.setProperty('position', 'fixed', 'important');
+                navContainer.style.setProperty('top', '0', 'important');
+                navContainer.style.setProperty('left', '0', 'important');
+                navContainer.style.setProperty('width', '100%', 'important');
+                navContainer.style.setProperty('z-index', '10000', 'important');
+            }
+            
+            const isMobile = window.innerWidth <= 768;
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                if (!isMobile) {
+                    // Change to fest logo when scrolled (desktop only)
+                    logo.src = '../images/fest-logo.png';
+                    logo.alt = 'Fest Logo';
+                }
+            } else {
+                navbar.classList.remove('scrolled');
+                if (!isMobile) {
+                    // Back to original logo when at top (desktop only)
+                    logo.src = '../images/clg.png';
+                    logo.alt = 'College Logo';
+                }
+            }
+        });
+
+        // MOBILE MENU TOGGLE
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            const hamburger = document.getElementById('hamburger');
+            const menuBackdrop = document.getElementById('menuBackdrop');
+            
+            navMenu.classList.toggle('active');
+            menuBackdrop.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            
+            const spans = hamburger.querySelectorAll('span');
+            if (navMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translateY(10px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translateY(-10px)';
+            } else {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = '';
+            }
+        }
+
+        if (hamburger) hamburger.addEventListener('click', toggleMenu);
+        if (menuBackdrop) menuBackdrop.addEventListener('click', toggleMenu);
+        if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
+
+        // Handle menu links and dropdown toggles
+        document.querySelectorAll('.menu-link, .nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.classList.contains('dropdown-toggle')) {
+                    e.preventDefault();
+                    const dropdown = link.closest('.dropdown');
+                    if (dropdown) {
+                        dropdown.classList.toggle('active');
+                    }
+                } else if (navMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    menuBackdrop.classList.remove('active');
+                    document.body.style.overflow = '';
+                    const spans = hamburger.querySelectorAll('span');
+                    spans.forEach((span, i) => {
+                        span.style.transform = '';
+                        if (i === 1) span.style.opacity = '1';
+                    });
+                }
+            });
+        });
+
+        // Handle dropdown links - close sidebar when clicked
+        document.querySelectorAll('.dropdown-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    menuBackdrop.classList.remove('active');
+                    document.body.style.overflow = '';
+                    const spans = hamburger.querySelectorAll('span');
+                    spans.forEach((span, i) => {
+                        span.style.transform = '';
+                        if (i === 1) span.style.opacity = '1';
+                    });
+                }
+            });
+        });
+
+        // Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 3}s`;
+                particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+    </script>
+</body>
+</html>

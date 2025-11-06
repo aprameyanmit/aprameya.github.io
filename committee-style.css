@@ -1,0 +1,1275 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a0a 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow: visible;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    position: relative;
+}
+
+.logo {
+    height: 45px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #64ffda;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #64ffda, #40c4ff);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(26, 26, 26, 0.98);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: 12px;
+    min-width: 220px;
+    padding: 12px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(100, 255, 218, 0.1);
+    list-style: none;
+    margin: 0;
+    z-index: 1001;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 12px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.dropdown-item:hover {
+    background: rgba(100, 255, 218, 0.15);
+    color: #64ffda;
+}
+
+.dropdown-item:first-child {
+    margin-top: 0;
+}
+
+.dropdown-item:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-toggle::after {
+    content: '▼';
+    font-size: 0.7rem;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    color: rgba(100, 255, 218, 0.8);
+    display: inline-block;
+}
+
+.dropdown:hover .dropdown-toggle::after,
+.dropdown.active .dropdown-toggle::after {
+    transform: rotate(180deg);
+    color: #64ffda;
+}
+
+/* Mobile specific dropdown arrow */
+@media (max-width: 768px) {
+    .dropdown-toggle::after {
+        content: '▼';
+        font-size: 12px;
+        transition: transform 0.3s ease;
+        margin-left: auto;
+        color: rgba(100, 255, 218, 0.8);
+    }
+    
+    .dropdown.active .dropdown-toggle::after {
+        transform: rotate(180deg);
+        color: #64ffda;
+    }
+}
+
+/* Mobile Menu Backdrop */
+.menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-header {
+    display: none;
+}
+
+.close-menu {
+    display: none;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 70px;
+    padding: 40px 0;
+}
+
+/* Header Section */
+.header-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #64ffda, #40c4ff, #448aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.page-subtitle,
+.hero-tagline {
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #ff6b35, #f7931e, #ffcc02, #ff6b35);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: gradientShift 3s ease-in-out infinite;
+    text-shadow: 
+        0 0 20px rgba(240, 66, 2, 0.5),
+        0 0 40px rgba(247, 147, 30, 0.3),
+        0 0 60px rgba(255, 204, 2, 0.2);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* President Section Updates - Same as Team Cards */
+.president-section {
+    margin-bottom: 30px;
+}
+
+.president-card {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.president-card .card-content {
+    background: transparent;
+    backdrop-filter: none;
+    border: 2px solid rgba(100, 255, 218, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.1);
+    transition: all 0.4s ease;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.president-card .card-content:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(100, 255, 218, 0.15);
+    border-color: rgba(100, 255, 218, 0.2);
+}
+
+.president-card .team-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.4), rgba(64, 196, 255, 0.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64ffda;
+    border: 2px solid rgba(100, 255, 218, 0.6);
+    transition: all 0.4s ease;
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+    transform: scale(1.1);
+}
+
+.president-card .team-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #64ffda;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.president-card .profile-photo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(100, 255, 218, 0.4);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+    transition: all 0.4s ease;
+    transform: scale(1.05);
+}
+
+.president-card .card-content:hover .team-icon {
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.4), rgba(64, 196, 255, 0.4));
+    border-color: rgba(100, 255, 218, 0.6);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+    transform: scale(1.1);
+}
+
+.president-card .card-content:hover .profile-photo {
+    border-color: rgba(100, 255, 218, 0.4);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+    transform: scale(1.05);
+}
+
+.president-card .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.4s ease;
+}
+
+.president-card .card-content:hover .profile-photo img {
+    transform: scale(1.1);
+}
+
+.president-card .member-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.president-card .member-contact {
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    font-weight: 400;
+}
+
+/* Teams Section */
+.teams-section {
+    margin-top: 20px;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.team-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    border: 2px solid rgba(100, 255, 218, 0.3);
+    border-radius: 20px;
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(100, 255, 218, 0.05);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Desktop Layout Optimization */
+@media (min-width: 1200px) {
+    .teams-grid {
+        gap: 40px;
+        max-width: 1600px;
+    }
+    
+    .team-card {
+        max-width: 650px;
+    }
+    
+    .team-card .card-content {
+        padding: 35px;
+        min-height: 320px;
+    }
+    
+    .member .profile-photo {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .member-name {
+        font-size: 1.2rem;
+    }
+    
+    .member-contact {
+        font-size: 1rem;
+    }
+    
+    .president-card {
+        max-width: 650px;
+    }
+    
+    .president-card .card-content {
+        padding: 40px;
+        height: 380px;
+    }
+    
+    .president-card .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .president-card .member-name {
+        font-size: 1.3rem;
+    }
+    
+    .president-card .member-contact {
+        font-size: 1rem;
+    }
+}
+
+.team-card .card-content {
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(100, 255, 218, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(100, 255, 218, 0.05);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    height: 100%;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.team-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.4), rgba(64, 196, 255, 0.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64ffda;
+    border: 2px solid rgba(100, 255, 218, 0.6);
+    transition: all 0.4s ease;
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+    transform: scale(1.1);
+}
+
+.team-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #64ffda;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    text-shadow: 0 2px 8px rgba(100, 255, 218, 0.3);
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    justify-items: center;
+    align-items: start;
+}
+
+/* Single member layout - centered */
+.team-members:has(.member:only-child) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.team-members .member:only-child {
+    max-width: 300px;
+}
+
+.team-members .member:only-child .profile-photo {
+    width: 140px;
+    height: 140px;
+}
+
+.team-members .member:only-child .member-name {
+    font-size: 1.2rem;
+}
+
+.team-members .member:only-child .member-contact {
+    font-size: 1rem;
+}
+
+.member {
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+}
+
+.member .profile-photo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(100, 255, 218, 0.4);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+    transition: all 0.4s ease;
+    transform: scale(1.05);
+}
+
+.member .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.4s ease;
+}
+
+.member-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.member-contact {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    font-weight: 400;
+}
+
+/* Team Card Hover Effects */
+.team-card .card-content:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(100, 255, 218, 0.15);
+    border-color: rgba(100, 255, 218, 0.2);
+}
+
+.team-card .card-content:hover .team-icon {
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.4), rgba(64, 196, 255, 0.4));
+    border-color: rgba(100, 255, 218, 0.6);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+    transform: scale(1.1);
+}
+
+.team-card .card-content:hover .member .profile-photo {
+    border-color: rgba(100, 255, 218, 0.4);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+    transform: scale(1.05);
+}
+
+.team-card .card-content:hover .member .profile-photo img {
+    transform: scale(1.1);
+}
+
+/* Responsive Design for Teams */
+@media (max-width: 768px) {
+    .teams-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 15px;
+    }
+    
+    .team-card {
+        max-width: 100%;
+    }
+    
+    .team-card .card-content {
+        padding: 25px 20px;
+        min-height: 180px;
+    }
+    
+    .team-header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    
+    .team-icon {
+        width: 45px;
+        height: 45px;
+        margin: 0 auto 10px;
+    }
+    
+    .team-name {
+        font-size: 1.1rem;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .team-members {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        justify-items: center;
+    }
+    
+    .member {
+        text-align: center;
+        width: 100%;
+        max-width: 180px;
+    }
+    
+    .member .profile-photo {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 10px;
+    }
+    
+    .member-name {
+        font-size: 1rem;
+        margin-bottom: 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .member-contact {
+        font-size: 0.85rem;
+    }
+
+    .president-card {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .president-card .card-content {
+        padding: 20px 15px;
+        height: 280px;
+        max-width: 100%;
+    }
+    
+    .president-card .team-icon {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 10px;
+    }
+    
+    .president-card .profile-photo {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 8px;
+    }
+    
+    .president-card .member-name {
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+    
+    .president-card .team-name {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+    
+    .president-card .member-contact {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .teams-grid {
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .team-card .card-content {
+        padding: 20px 15px;
+        min-height: 160px;
+    }
+    
+    .team-header {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+        text-align: center;
+    }
+    
+    .team-icon {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 8px;
+    }
+    
+    .team-name {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        text-align: center;
+    }
+    
+    .team-members {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        justify-items: center;
+    }
+    
+    .member {
+        text-align: center;
+        width: 100%;
+        max-width: 150px;
+    }
+    
+    .member .profile-photo {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 8px;
+    }
+    
+    .member-name {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .member-contact {
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    .president-card {
+        padding: 0 10px;
+    }
+
+    .president-card .card-content {
+        padding: 15px 12px;
+        height: 280px;
+    }
+
+    .president-card .team-icon {
+        width: 35px;
+        height: 35px;
+        margin: 0 auto 8px;
+    }
+    
+    .president-card .profile-photo {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 6px;
+    }
+    
+    .president-card .member-name {
+        font-size: 0.75rem;
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .president-card .team-name {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .president-card .team-name::after {
+        width: 40px;
+    }
+    
+    .president-card .member-contact {
+        font-size: 0.7rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+    }
+    
+    .page-title::after {
+        width: 60px;
+        height: 2px;
+    }
+
+    .page-subtitle {
+        font-size: 0.85rem;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .teams-grid {
+        gap: 15px;
+        padding: 0 8px;
+    }
+    
+    .team-card .card-content {
+        padding: 15px 10px;
+        min-height: 140px;
+    }
+    
+    .team-header {
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    
+    .team-icon {
+        width: 35px;
+        height: 35px;
+        margin: 0 auto 6px;
+    }
+    
+    .team-name {
+        font-size: 0.85rem;
+        text-align: center;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    .team-name::after {
+        width: 35px;
+    }
+    
+    .team-members {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        justify-items: center;
+    }
+    
+    .member {
+        text-align: center;
+        width: 100%;
+        max-width: 120px;
+    }
+    
+    .member .profile-photo {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 6px;
+    }
+    
+    .member-name {
+        font-size: 0.75rem;
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        padding: 0 2px;
+    }
+    
+    .member-contact {
+        font-size: 0.65rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        padding: 0 2px;
+    }
+
+    .president-card {
+        padding: 0 8px;
+    }
+
+    .president-card .card-content {
+        height: 260px;
+        padding: 12px 10px;
+    }
+    
+    .president-card .team-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto 6px;
+    }
+    
+    .president-card .profile-photo {
+        width: 45px;
+        height: 45px;
+        margin: 0 auto 4px;
+    }
+    
+    .president-card .member-name {
+        font-size: 0.7rem;
+        margin-bottom: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    
+    .president-card .team-name {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    
+    .president-card .team-name::after {
+        width: 35px;
+    }
+    
+    .president-card .member-contact {
+        font-size: 0.65rem;
+    }
+
+    .page-title {
+        font-size: 1.4rem;
+        padding-bottom: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .page-title::after {
+        width: 50px;
+        height: 2px;
+    }
+
+    .page-subtitle {
+        font-size: 0.8rem;
+        padding: 0 12px;
+        white-space: normal;
+        line-height: 1.4;
+    }
+}
+
+/* Footer */
+.footer {
+    background: rgba(10, 10, 10, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.footer p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Mobile Navbar Styles */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(26, 26, 46, 0.95);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(100, 255, 218, 0.3);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+        transition: right 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        list-style: none;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px;
+        border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+        background: rgba(100, 255, 218, 0.1);
+        width: 100%;
+        min-height: 60px;
+        flex-shrink: 0;
+    }
+
+    .mobile-menu-header h3 {
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .close-menu {
+        background: none;
+        border: none;
+        color: #ffffff;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .close-menu:hover {
+        background: rgba(100, 255, 218, 0.2);
+        color: #64ffda;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 18px 20px;
+        font-size: 16px;
+        border-radius: 0;
+        color: #ffffff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* Remove underline effect for mobile */
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: rgba(100, 255, 218, 0.1);
+        color: #64ffda;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transform: none;
+        background: rgba(100, 255, 218, 0.05);
+        margin: 0;
+        border-radius: 0;
+        transition: all 0.3s ease;
+        width: 100%;
+        border-top: 1px solid rgba(100, 255, 218, 0.1);
+    }
+
+    .dropdown.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        max-height: 600px; /* Increased to fit all 10 events */
+    }
+
+    .dropdown-item {
+        width: 100%;
+        padding: 12px 30px; /* Reduced padding to fit more items */
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        display: block;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(100, 255, 218, 0.05);
+        box-sizing: border-box;
+        line-height: 1.4; /* Better line spacing */
+    }
+
+    .dropdown-item:hover {
+        background: rgba(100, 255, 218, 0.1);
+        color: #64ffda;
+        padding-left: 35px;
+        transform: translateX(5px); /* Subtle slide effect */
+    }
+
+    .dropdown-item:last-child {
+        border-bottom: none;
+        margin-bottom: 20px; /* Increased bottom spacing for last item */
+    }
+
+    /* Add padding to the last nav item to ensure scroll visibility */
+    .nav-menu li:last-child {
+        margin-bottom: 20px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        padding-bottom: 12px;
+    }
+    
+    .page-title::after {
+        width: 70px;
+        height: 2.5px;
+    }
+
+    .page-subtitle {
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+
+    .main-content {
+        padding: 50px 0;
+    }
+
+    .header-section {
+        margin-bottom: 40px;
+    }
+
+    .president-section {
+        margin-bottom: 40px;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #64ffda, #40c4ff);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #40c4ff, #448aff);
+}
+
+/* Loading animation for images */
+.profile-photo img {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Glow effect on focus */
+.social-icon:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+}

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCA Fest - Where Legends Awaken</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Philosopher:wght@400;700&family=Rubik+Wet+Paint&family=Macondo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+    <div class="fog-overlay"></div>
+    
+    <!-- Mobile Menu Backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <img src="images/clg.png" alt="Fest Logo" class="logo">
+            </div>
+            <div class="nav-center">
+                <img src="images/sparx.png" alt="House Logo" class="house-logo">
+            </div>
+            <div class="nav-right">
+                <!-- Desktop Navigation -->
+                <ul class="desktop-nav">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#events" class="nav-link">Events</a></li>
+                    <li><a href="committee.html" class="nav-link">Coordinators</a></li>
+                    <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
+                    <li><a href="#" class="nav-link">Brochure</a></li>
+                </ul>
+                
+                <!-- Mobile Hamburger -->
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" id="navMenu">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">APRAMEYA</h2>
+            <button class="close-btn" id="closeMenu">×</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item">
+                <a href="#home" class="menu-link">
+                    <span class="menu-icon">🏠</span>
+                    Home
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#about" class="menu-link">
+                    <span class="menu-icon">ℹ️</span>
+                    About
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#events" class="menu-link">
+                    <span class="menu-icon">🎉</span>
+                    Events
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="committee.html" class="menu-link">
+                    <span class="menu-icon">👥</span>
+                    Coordinators
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#sponsors" class="menu-link">
+                    <span class="menu-icon">🤝</span>
+                    Sponsors
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">
+                    <span class="menu-icon">�</span>
+                    Brochure
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="fest-logo-container">
+                <img src="images/fest-logo.png" alt="Fest Logo" class="fest-logo">
+            </div>
+            <div class="hero-image-container">
+                <img src="images/aprameya.png" alt="Aprameya" class="hero-image">
+            </div>
+            <p class="hero-tagline">Where Ancient Spirits, Fuel Modern Sparks </p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-timer">
+                    <div class="time-box">
+                        <span class="time-value" id="days">00</span>
+                        <span class="time-label">Days</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span class="time-value" id="hours">00</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span class="time-value" id="minutes">00</span>
+                        <span class="time-label">Minutes</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span class="time-value" id="seconds">00</span>
+                        <span class="time-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-heading fade-in">About the Fest</h2>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <h3>MCA Department</h3>
+                    <p>The Department of Master of Computer Applications was founded with the Vision of creating global professionals who are technically ready for the industry. This is a two-year professional postgraduate program with an intake of 120, for individuals who want to master an advanced computer programming language and gain further insight into computer application development. This curriculum combines information from theory and practice.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <h3>Aprameya</h3>
+                    <p>Aprameya Is The Annual Extravaganza Orchestrated By The Department of MCA At Nitte Meenakshi Institute Of Technology, Bengaluru. This Flagship Technical Fest Is More Than Just An Event, It's An Immersive Experience That Transcends Boundaries. Aprameya Invites Participants To Explore The Interconnected World Of Technology, Challenge Their Limits, And Showcase Their Technical Prowess. Dive Into A Realm Of Innovation, Competition, And Excellence, And Be Part Of Something Extraordinary!.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <h2 class="section-heading fade-in">Our Events</h2>
+            <div class="carousel-cylinder-container">
+                <div class="carousel-cylinder-scene">
+                    <div class="carousel-cylinder" id="carouselCylinder">
+                        <!-- Event Card 1 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images/coding.png" alt="Phoenix Code">
+                                </div>
+                                <h3>Phoenix Code <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Coding)</span></h3>
+                                <p>Rise, debug, and rebuild from the ashes of errors</p>
+                                <a href="events/phoenix-code.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 2 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images/webdesgin.png" alt="Arachne WebWorks">
+                                </div>
+                                <h3>Arachne WebWorks <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Web Design)</span></h3>
+                                <p>Weave digital wonders like Arachne spun her eternal web</p>
+                                <a href="events/arachne-webworks.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 3 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images/itquiz.png" alt="Sphinx Quest">
+                                </div>
+                                <h3>Sphinx Quest <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(IT Quiz)</span></h3>
+                                <p>Answer the riddles of tech, if you dare</p>
+                                <a href="events/sphinx-quest.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 4 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images\itmanager.png" alt="Griffin's Command">
+                                </div>
+                                <h3>Griffin's Command <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(IT Manager)</span></h3>
+                                <p>Guard the realm of innovation with wisdom and might</p>
+                                <a href="events/griffins-command.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 5 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images/techtalk.png" alt="Athena's Owl">
+                                </div>
+                                <h3>Athena's Owl <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Tech Talk)</span></h3>
+                                <p>Wisdom takes flight through voices of innovation</p>
+                                <a href="events/athenas-owl.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 6 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images/pitchtalk.png" alt="Dragon's Den">
+                                </div>
+                                <h3>Dragon's Den <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Start Up Pitch)</span></h3>
+                                <p>Unleash your fiery ideas and make them soar</p>
+                                <a href="events/dragons-den.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 7 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images\photography.png" alt="Pegasus Frames">
+                                </div>
+                                <h3>Pegasus Frames <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Photography)</span></h3>
+                                <p>Capture the magic, let your imagination take flight</p>
+                                <a href="events/pegasus-frames.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 8 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images/gaming.png" alt="Kraken Clash">
+                                </div>
+                                <h3>Kraken Clash <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Gaming)</span></h3>
+                                <p>Dive into the depths of digital battles</p>
+                                <a href="events/kraken-clash.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 9 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images/sprise.png" alt="Chimera Chase">
+                                </div>
+                                <h3>Chimera Chase <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Surprise Event)</span></h3>
+                                <p>Expect the unexpected in this mythical mix of challenges</p>
+                                <a href="events/chimera-chase.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                        <!-- Event Card 10 -->
+                        <div class="event-card-cylinder">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="images/hackathon.png" alt="Hydra Hacks">
+                                </div>
+                                <h3>Hydra Hacks <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Hackathon)</span></h3>
+                                <p>Cut down one problem, and two new solutions emerge</p>
+                                <a href="events/hydra-hacks.html" class="register-btn">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation Buttons -->
+                <div class="carousel-nav">
+                    <button class="carousel-nav-btn prev-btn" id="prevCylinderBtn">
+                        <span>&#8249;</span>
+                    </button>
+                    <button class="carousel-nav-btn next-btn" id="nextCylinderBtn">
+                        <span>&#8250;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- General Rules Section -->
+    <section class="rules" id="rules">
+        <div class="container">
+            <h2 class="section-heading fade-in">General Event Rules</h2>
+            <div class="rules-container fade-in">
+                <ul class="rules-list">
+                    <li>The Overall Championship will be determined based on the total points earned from all events and participation count.</li>
+                    <li>Participants must carry their valid College ID card; it is mandatory for entry.</li>
+                    <li>Registration fees are strictly non-refundable.</li>
+                    <li>Any kind of misconduct or misbehavior will result in immediate disqualification of the participant/team.</li>
+                    <li>Event-specific instructions will be provided by the Event Coordinator before the commencement of the event.</li>
+                    <li>The decision of the judges will be final and binding.</li>
+                    <li>The institution will not be responsible for the loss of any personal valuables.</li>
+                    <li>An individual participant cannot register for multiple events simultaneously.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advisory Panel Section -->
+    <section class="coordinators advisory-panel" id="coordinators">
+        <div class="container">
+            <h2 class="section-heading fade-in">Advisory Panel</h2>
+            <div class="coordinator-grid">
+                <div class="coordinator-card fade-in">
+                    <div class="coordinator-image">
+                        <img src="images\hod.jpg" alt="Coordinator 1">
+                    </div>
+                    <h3>Dr.Sreekanth Rallapalli</h3>
+                    <p>Head Of Department</p>
+                </div>
+                <div class="coordinator-card fade-in">
+                    <div class="coordinator-image">
+                        <img src="images\sowmya.jpg" alt="Coordinator 2">
+                    </div>
+                    <h3>Mrs.Sowmya K</h3>
+                    <p>Event Convenor</p>
+                </div>
+                <div class="coordinator-card fade-in">
+                    <div class="coordinator-image">
+                        <img src="images/photos/dr_vidhyasagar.jpeg" alt="Coordinator 1">
+                    </div>
+                    <h3>Dr.Vidya Sagar</h3>
+                    <p>Event Convenor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Coordinators Section -->
+    <section class="coordinators our-coordinators" id="coordinators">
+        <div class="container">
+            <h2 class="section-heading fade-in">Meet Our Coordinators</h2>
+            <div class="coordinator-grid">
+                <div class="coordinator-card fade-in">
+                    <div class="coordinator-image">
+                        <img src="images/photos/sathwik.jpeg" alt="Coordinator 1">
+                    </div>
+                    <h3>Sathwik S R</h3>
+                    <p>President</p>
+                </div>
+                <div class="coordinator-card fade-in">
+                    <div class="coordinator-image">
+                        <img src="images/photos/soma.jpeg" alt="Coordinator 2">
+                    </div>
+                    <h3>Somashekar M</h3>
+                    <p>Event Head</p>
+                </div>
+                <div class="coordinator-card fade-in">
+                    <div class="coordinator-image">
+                        <img src="images/photos/srusti.jpeg" alt="Srushti">
+                    </div>
+                    <h3>Srushti SU</h3>
+                    <p>Event Head</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Technical Heads Section -->
+    <section class="coordinators tech-heads" id="coordinators">
+        <div class="container">
+            <h2 class="section-heading fade-in">Tech & Design Heads</h2>
+            <div class="coordinator-grid">
+                <div class="coordinator-card fade-in">
+                    <div class="coordinator-image">
+                        <img src="images/photos/pradeep.jpeg" alt="Coordinator 1">
+                    </div>
+                                      <h3>Pradeep C</h3>
+
+                    <!-- <p>Tech & Desgin Teamr</p> -->
+                </div>
+                <div class="coordinator-card fade-in">
+                    <div class="coordinator-image">
+                        <img src="images/photos/vivek.jpeg" alt="Coordinator 2">
+                    </div>
+                      <h3>Vivek Y</h3>
+                    <!-- <p>Event Head</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="sponsors" id="sponsors">
+        <div class="container">
+            <h2 class="section-heading fade-in">Our Sponsors</h2>
+            <div class="sponsor-grid fade-in">
+                <a href="https://builderthinking.com/" target="_blank" class="sponsor-logo">
+                    <img src="images\BuilderThinkingLogo - 1.png" alt="Builder Thinking">
+                </a>
+                <a href="https://certisured.com/" target="_blank" class="sponsor-logo">
+                    <img src="images\Certisured_Black.png" alt="Certisured">
+                </a>
+                <!-- <div class="sponsor-logo">
+                    <img src="https://via.placeholder.com/180x80/312e81/ffffff?text=SPONSOR+3" alt="Sponsor 3">
+                </div>
+                <div class="sponsor-logo">
+                    <img src="https://via.placeholder.com/180x80/4c1d95/ffffff?text=SPONSOR+4" alt="Sponsor 4">
+                </div>
+                <div class="sponsor-logo">
+                    <img src="https://via.placeholder.com/180x80/312e81/ffffff?text=SPONSOR+5" alt="Sponsor 5">
+                </div>
+                <div class="sponsor-logo">
+                    <img src="https://via.placeholder.com/180x80/4c1d95/ffffff?text=SPONSOR+6" alt="Sponsor 6">
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Styling Partner Section -->
+    <section class="styling-partner" id="styling-partner">
+        <div class="container">
+            <h2 class="section-heading fade-in">Styling Partner</h2>
+            <div class="styling-partner-container fade-in">
+                <a href="https://www.instagram.com/arun_adda_mens__wear?igsh=MW45MHA3ZWxzeHZsaw==" target="_blank" class="styling-partner-logo">
+                    <img src="images/arun_adda.jpg" alt="Arun Adda Mens Wear">
+                    <div class="partner-overlay">
+                        <span class="partner-text">Visit Store</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section map-section">
+                    <h3>Location</h3>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6826171841855!2d77.5876588!3d13.1294627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae170d10bb559b%3A0x2bb3892a626cf9ba!2sNitte%20Meenakshi%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1698765432100!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="footer-section designer-section">
+                    <h3>Website Designers</h3>
+                    <div class="footer-designers">
+                        <div class="designer-card">
+                            <img src="images/photos/dhanush.jpeg" alt="Designer 1">
+                            <span>Dhanush P</span>
+                        </div>
+                        <div class="designer-card">
+                            <img src="images/photos/pradeep.jpeg" alt="Designer 2">
+                            <span>Pradeep C</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section social-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/aprameya.nmit/" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MCA Department. All Rights Reserved. Where Legends Awaken.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
