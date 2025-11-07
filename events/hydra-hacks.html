@@ -3,12 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hydra Hacks - Aprameya Fest</title>
+    <title>Hydra Hacks - Agentic AI Hackathon 2025</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Philosopher:wght@400;700&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Philosopher:wght@400;700&family=Rubik+Wet+Paint&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../event-style.css">
     <style>
+        /* AGENTIC AI HACKATHON SPECIAL STYLES */
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0f2e 25%, #2d1b3d 50%, #1a0f2e 75%, #0a0a0a 100%);
+            background-attachment: fixed;
+        }
+        
+        /* AI-Themed Animated Background */
+        .ai-grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(138, 43, 226, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(138, 43, 226, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        /* Special Header for Agentic AI */
+        .event-header {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(75, 0, 130, 0.2));
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            box-shadow: 
+                0 0 60px rgba(138, 43, 226, 0.6),
+                0 0 100px rgba(75, 0, 130, 0.4),
+                inset 0 0 40px rgba(138, 43, 226, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(138, 43, 226, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .event-title {
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 4rem !important;
+            font-weight: 900 !important;
+            background: linear-gradient(135deg, #a855f7, #ec4899, #8b5cf6, #d946ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 8px !important;
+            text-shadow: 
+                0 0 30px rgba(138, 43, 226, 0.8),
+                0 0 60px rgba(138, 43, 226, 0.6);
+            animation: titleGlow 2s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes titleGlow {
+            0%, 100% {
+                filter: brightness(1) drop-shadow(0 0 30px rgba(138, 43, 226, 0.8));
+            }
+            50% {
+                filter: brightness(1.3) drop-shadow(0 0 50px rgba(138, 43, 226, 1));
+            }
+        }
+        
+        .event-subtitle {
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 2.5rem !important;
+            font-weight: 700 !important;
+            color: #fbbf24 !important;
+            text-shadow: 
+                0 0 20px rgba(251, 191, 36, 0.8),
+                0 0 40px rgba(251, 191, 36, 0.4);
+            letter-spacing: 6px !important;
+            margin-top: 20px !important;
+            animation: subtitlePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes subtitlePulse {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow: 0 0 40px rgba(251, 191, 36, 1), 0 0 60px rgba(251, 191, 36, 0.6);
+            }
+        }
+        
+        /* AI Agent Badge */
+        .ai-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            margin: 25px auto;
+            box-shadow: 
+                0 0 30px rgba(139, 92, 246, 0.8),
+                0 0 60px rgba(236, 72, 153, 0.4);
+            animation: badgePulse 2s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(139, 92, 246, 0.8), 0 0 60px rgba(236, 72, 153, 0.4);
+            }
+            50% {
+                transform: scale(1.08);
+                box-shadow: 0 0 50px rgba(139, 92, 246, 1), 0 0 100px rgba(236, 72, 153, 0.6);
+            }
+        }
+        
+        /* Special Rules Card for AI Hackathon */
+        .unique-rules-card {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(75, 0, 130, 0.15));
+            border: 3px solid rgba(138, 43, 226, 0.6);
+            box-shadow: 
+                0 0 40px rgba(138, 43, 226, 0.5),
+                inset 0 0 30px rgba(138, 43, 226, 0.1);
+        }
+        
+        .rules-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #a855f7;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
+        }
+        
+        .rule-item {
+            background: rgba(138, 43, 226, 0.1);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .rule-item:hover {
+            background: rgba(138, 43, 226, 0.2);
+            border-color: rgba(138, 43, 226, 0.6);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
+            transform: translateY(-5px) scale(1.02);
+        }
+        
+        .rule-icon {
+            font-size: 3rem;
+            filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.6));
+        }
+        
+        /* AI Register Button */
+        .beautiful-register-btn {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            padding: 25px 60px;
+            box-shadow: 
+                0 0 40px rgba(139, 92, 246, 0.8),
+                0 0 80px rgba(236, 72, 153, 0.4);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .beautiful-register-btn:hover {
+            box-shadow: 
+                0 0 60px rgba(139, 92, 246, 1),
+                0 0 120px rgba(236, 72, 153, 0.6);
+            transform: scale(1.1) translateY(-5px);
+            text-decoration: none;
+        }
+        
+        /* Info Cards AI Theme */
+        .info-card {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(75, 0, 130, 0.15));
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+        }
+        
+        .info-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #a855f7;
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+        }
+        
+        .fee-amount {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        /* Responsive Mobile Styles */
+        @media (max-width: 768px) {
+            .event-title {
+                font-size: 2rem !important;
+                letter-spacing: 3px !important;
+            }
+            
+            .event-subtitle {
+                font-size: 1.4rem !important;
+                letter-spacing: 2px !important;
+            }
+            
+            .ai-badge {
+                font-size: 1rem;
+                padding: 10px 25px;
+                letter-spacing: 2px;
+            }
+            
+            .beautiful-register-btn {
+                font-size: 1.2rem;
+                padding: 18px 40px;
+                letter-spacing: 2px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .logo {
                 width: 240px !important;
@@ -40,6 +278,9 @@
     </style>
 </head>
 <body>
+    <!-- AI Grid Overlay -->
+    <div class="ai-grid-overlay"></div>
+    
     <!-- Particle Background -->
     <div class="particles" id="particles"></div>
     <div class="fog-overlay"></div>
@@ -133,53 +374,72 @@
         <!-- Header Section -->
         <div class="event-header">
             <h1 class="event-title">
-                H y d r a H a c k s
-                <p class="event-subtitle">(Hackathon)</p>
+                H Y D R A  H A C K S
+                <p class="event-subtitle">AGENTIC AI HACKATHON 2025</p>
             </h1>
+            <div class="ai-badge">AI AGENTS PIPELINE CHALLENGE</div>
         </div>
 
         <!-- Single Full-Width Rules Section -->
         <div class="rules-section">
             <div class="unique-rules-card">
                 <div class="rules-header">
-                    <h2>Event Rules & Guidelines</h2>
-                    <div class="rules-subtitle">Essential guidelines for all participants</div>
+                    <h2>🤖 Agentic AI Hackathon Rules & Guidelines</h2>
+                    <div class="rules-subtitle">Build the Future with AI Agents</div>
                 </div>
                 <div class="rules-grid">
                     <div class="rule-item">
+                        <div class="rule-icon">📅</div>
+                        <div class="rule-content">
+                            <p><strong>Date & Duration:</strong> November 21, 2025 | 8-Hour Offline Event on Campus</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
                         <div class="rule-icon">👥</div>
                         <div class="rule-content">
-                            <p>Each team must consist of 3-4 members.</p>
+                            <p><strong>Team Size:</strong> Each team must consist of exactly 3 members</p>
                         </div>
                     </div>
                     <div class="rule-item">
-                        <div class="rule-icon">⏰</div>
+                        <div class="rule-icon">🎯</div>
                         <div class="rule-content">
-                            <p>24-hour hackathon with multiple development phases.</p>
+                            <p><strong>Challenge:</strong> Build an Agentic AI pipeline to solve a surprise challenge revealed on event day</p>
                         </div>
                     </div>
                     <div class="rule-item">
-                        <div class="rule-icon">💡</div>
+                        <div class="rule-icon">�</div>
                         <div class="rule-content">
-                            <p>Focus on creative and innovative solutions to real-world problems.</p>
+                            <p><strong>Pre-Webinar:</strong> Mandatory session on November 15, 2025, by an industry expert/trainer</p>
                         </div>
                     </div>
                     <div class="rule-item">
-                        <div class="rule-icon">💻</div>
+                        <div class="rule-icon">🎓</div>
                         <div class="rule-content">
-                            <p>Use any programming languages, frameworks, and tools of your choice.</p>
+                            <p><strong>Webinar Certificate:</strong> Certificates of participation awarded to all pre-webinar attendees</p>
                         </div>
                     </div>
                     <div class="rule-item">
-                        <div class="rule-icon">📋</div>
+                        <div class="rule-icon">⏱️</div>
                         <div class="rule-content">
-                            <p>Submit working prototype with documentation and presentation.</p>
+                            <p><strong>Development Time:</strong> Complete your project within the 8-hour timeline without prebuilt code</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">🚫</div>
+                        <div class="rule-content">
+                            <p><strong>No Prior Code:</strong> No prebuilt code or prior projects allowed - fresh development only</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon">�</div>
+                        <div class="rule-content">
+                            <p><strong>Submission:</strong> Working demo, architecture diagram, and short presentation required</p>
                         </div>
                     </div>
                     <div class="rule-item">
                         <div class="rule-icon">🏆</div>
                         <div class="rule-content">
-                            <p>Evaluation based on innovation, technical complexity, and presentation.</p>
+                            <p><strong>Evaluation:</strong> Judged on creativity, technical design, and innovation</p>
                         </div>
                     </div>
                 </div>
@@ -188,11 +448,11 @@
 
         <!-- Beautiful Register Button -->
         <div class="register-section">
-            <button class="beautiful-register-btn">
-                <span class="btn-text">Registration Opens Soon</span>
+            <a href="https://forms.gle/fhKyL8XKonf84MN66" target="_blank" class="beautiful-register-btn">
+                <span class="btn-text">Register Now</span>
                 <span class="btn-icon">🚀</span>
                 <div class="btn-glow"></div>
-            </button>
+            </a>
         </div>
 
         <!-- Two Column Layout: Registration & Prizes -->
@@ -202,7 +462,7 @@
                     <h2>Registration</h2>
                     <div class="single-fee-structure">
                         <div class="fee-display">
-                            <span class="fee-amount">₹500/-</span>
+                            <span class="fee-amount">₹600/-</span>
                             <span class="fee-description">Per Team Registration</span>
                         </div>
                     </div>
