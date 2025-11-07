@@ -1848,6 +1848,48 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-purple);
 }
 
+/* Contact Links */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--white);
+    text-decoration: none;
+    padding: 25px 35px;
+    background: rgba(138, 121, 104, 0.15);
+    border-radius: 15px;
+    border: 2px solid rgba(138, 121, 104, 0.4);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-icon:hover {
+    background: rgba(138, 121, 104, 0.25);
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 20px rgba(138, 121, 104, 0.5);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.contact-icon svg {
+    color: var(--primary-purple);
+    flex-shrink: 0;
+}
+
 /* Footer Designer Cards */
 .footer-designers {
     display: flex;
