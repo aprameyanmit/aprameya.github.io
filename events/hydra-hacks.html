@@ -486,6 +486,12 @@
             </div>
         </div>
 
+        <!-- Registration Deadline Notice -->
+        <div class="registration-deadline-notice" style="text-align: center; margin: 30px auto; padding: 20px; max-width: 800px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2)); border: 2px solid #ec4899; border-radius: 15px; box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);">
+            <h3 style="color: #fbbf24; font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 10px; text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);">⏰ Registration Deadline</h3>
+            <p style="color: #ec4899; font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 700; margin: 0;">Closes on 14th November 2025 at 11:59 PM</p>
+        </div>
+
         <!-- Beautiful Register Button -->
         <div class="register-section">
             <a href="https://forms.gle/fhKyL8XKonf84MN66" target="_blank" class="beautiful-register-btn">
@@ -774,6 +780,11 @@
             }
         }
         createParticles();
+
+        // Registration Deadline Alert
+        window.addEventListener('load', function() {
+            alert('⏰ Important: Registration for Hydra Hacks closes on 14th November 2025 at 11:59 PM. Register now!');
+        });
     </script>
 </body>
 </html>
