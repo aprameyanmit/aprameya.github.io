@@ -1580,6 +1580,101 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.05);
 }
 
+/* Sponsor Categories Layout */
+.sponsor-categories {
+    display: flex;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.sponsor-category {
+    flex: 1;
+    text-align: center;
+    min-width: 280px;
+}
+
+.sponsor-tier-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-purple), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sponsor-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .sponsor-categories {
+        gap: 30px;
+    }
+    
+    .sponsor-category {
+        min-width: 250px;
+    }
+    
+    .sponsor-tier-heading {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sponsor-categories {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .sponsor-category {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .sponsor-tier-heading {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+    
+    .sponsor-logo {
+        min-width: 200px;
+        min-height: 120px;
+        padding: 30px 40px;
+    }
+    
+    .sponsor-logo img {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsor-tier-heading {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+    
+    .sponsor-logo {
+        min-width: 180px;
+        min-height: 100px;
+        padding: 25px 30px;
+    }
+    
+    .sponsor-logo img {
+        max-width: 150px;
+    }
+}
+
 /* ============================
    STYLING PARTNER
    ============================ */
