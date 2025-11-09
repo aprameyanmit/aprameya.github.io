@@ -815,14 +815,14 @@
         <!-- Moving Text Notice -->
         <div class="moving-text-container">
             <div class="moving-text">
-                📢 NOTE: Saturday morning 9.00 AM to afternoon 12.00 PM - Master class Followed by Q&A for 30 mins 📢
+                📢 NOTE: Nov 15ht Saturday morning 9.00 AM to afternoon 12.00 PM - Master class Followed by Q&A for 30 mins 📢
             </div>
         </div>
 
         <!-- Hackathon Intro Video -->
         <div class="video-section">
             <div class="video-container">
-                <video id="hackathonVideo" class="hackathon-video" poster="../images/hackathon.png" autoplay loop muted>
+                <video id="hackathonVideo" class="hackathon-video" poster="../images/hackathon.png" loop>
                     <source src="../images/hackathon.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -1221,13 +1221,21 @@
         const progressFill = document.getElementById('progressFill');
         const timeDisplay = document.getElementById('timeDisplay');
 
-        // Initialize play/pause button state (video autoplays)
+        // Initialize play/pause button state and autoplay with sound
         window.addEventListener('load', () => {
-            playPauseBtn.querySelector('.play-icon').style.display = 'none';
-            playPauseBtn.querySelector('.pause-icon').style.display = 'block';
-            // Video is muted by default for autoplay
-            muteBtn.querySelector('.unmute-icon').style.display = 'none';
-            muteBtn.querySelector('.mute-icon').style.display = 'block';
+            // Try to autoplay with sound
+            video.play().then(() => {
+                playPauseBtn.querySelector('.play-icon').style.display = 'none';
+                playPauseBtn.querySelector('.pause-icon').style.display = 'block';
+                // Video is unmuted
+                muteBtn.querySelector('.unmute-icon').style.display = 'block';
+                muteBtn.querySelector('.mute-icon').style.display = 'none';
+            }).catch((error) => {
+                console.log('Autoplay was prevented:', error);
+                // If autoplay fails, show play button
+                playPauseBtn.querySelector('.play-icon').style.display = 'block';
+                playPauseBtn.querySelector('.pause-icon').style.display = 'none';
+            });
         });
 
         // Play/Pause Toggle
