@@ -3346,11 +3346,20 @@ Z-INDEX LAYERING:
         min-width: 0; /* Allow card to shrink but not image */
     }
     
-    /* Student coordinators grid - force proper sizing */
-    .coordinators-grid .coordinator-card {
+    /* Student coordinators grid - horizontal layout on mobile */
+    .coordinators-grid {
         display: flex !important;
         flex-direction: column !important;
+        gap: 15px !important;
+    }
+    
+    .coordinators-grid .coordinator-card {
+        display: flex !important;
+        flex-direction: row !important;
         align-items: center !important;
+        gap: 15px !important;
+        padding: 15px !important;
+        text-align: left !important;
     }
     
     .coordinators-grid .coordinator-image {
@@ -3360,6 +3369,7 @@ Z-INDEX LAYERING:
         height: 80px !important;
         flex-shrink: 0 !important;
         aspect-ratio: 1 / 1 !important;
+        margin: 0 !important;
     }
     
     .coordinators-grid .coordinator-image img {
@@ -3369,6 +3379,21 @@ Z-INDEX LAYERING:
         height: 100% !important;
         object-fit: cover !important;
         flex-shrink: 0 !important;
+    }
+    
+    .coordinators-grid .coordinator-info {
+        flex: 1;
+        text-align: left !important;
+    }
+    
+    .coordinators-grid .coordinator-info h3,
+    .coordinators-grid .coordinator-info .coordinator-name {
+        text-align: left !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .coordinators-grid .coordinator-info .contact {
+        text-align: left !important;
     }
     
     .all-coordinators-section .coordinator-image {
@@ -3386,6 +3411,11 @@ Z-INDEX LAYERING:
     .coordinator-image {
         min-width: 80px !important;
         min-height: 80px !important;
+    }
+    
+    .coordinators-grid .coordinator-card {
+        gap: 12px !important;
+        padding: 12px !important;
     }
     
     .coordinators-grid .coordinator-image {
