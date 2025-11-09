@@ -434,6 +434,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 10px;
     margin-top: -80px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .fest-logo-container {
@@ -441,6 +443,9 @@ h1, h2, h3, h4, h5, h6 {
     transform-style: preserve-3d;
     will-change: transform;
     animation: fadeInDown 1s ease-out;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .fest-logo {
@@ -487,6 +492,9 @@ h1, h2, h3, h4, h5, h6 {
     transform-style: preserve-3d;
     will-change: transform;
     animation: fadeInUp 1.2s ease-out 0.3s both;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-image {
@@ -497,6 +505,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: none;
     animation: breathe 5s ease-in-out infinite;
     display: block;
+    margin: 0 auto;
     transition: transform 0.3s ease-out;
     filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.6));
 }
@@ -2517,18 +2526,6 @@ h1, h2, h3, h4, h5, h6 {
         overflow: hidden;
     }
 
-    .hero-image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .hero-image {
-        margin: 0 auto;
-        display: block;
-    }
-
     /* Hide Desktop Nav on Mobile */
     .desktop-nav {
         display: none !important;
@@ -3151,18 +3148,6 @@ h1, h2, h3, h4, h5, h6 {
         /* Disable animations on small mobile screens for performance */
         animation: none !important;
         filter: drop-shadow(0 8px 30px rgba(255, 215, 0, 0.4)) !important;
-    }
-
-    .hero-image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .hero-image {
-        margin: 0 auto;
-        display: block;
     }
 
     .hero-tagline {
