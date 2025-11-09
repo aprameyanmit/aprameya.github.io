@@ -3351,25 +3351,35 @@ Z-INDEX LAYERING:
         display: flex !important;
         flex-direction: column !important;
         gap: 15px !important;
+        width: 100% !important;
     }
     
     .coordinators-grid .coordinator-card {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
+        justify-content: flex-start !important;
         gap: 15px !important;
         padding: 15px !important;
         text-align: left !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
     }
     
     .coordinators-grid .coordinator-image {
         min-width: 80px !important;
+        max-width: 80px !important;
         min-height: 80px !important;
+        max-height: 80px !important;
         width: 80px !important;
         height: 80px !important;
         flex-shrink: 0 !important;
+        flex-grow: 0 !important;
         aspect-ratio: 1 / 1 !important;
         margin: 0 !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
     }
     
     .coordinators-grid .coordinator-image img {
@@ -3377,23 +3387,39 @@ Z-INDEX LAYERING:
         min-height: 100% !important;
         width: 100% !important;
         height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
         object-fit: cover !important;
+        object-position: center !important;
         flex-shrink: 0 !important;
+        display: block !important;
     }
     
     .coordinators-grid .coordinator-info {
-        flex: 1;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
         text-align: left !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 5px !important;
     }
     
     .coordinators-grid .coordinator-info h3,
     .coordinators-grid .coordinator-info .coordinator-name {
         text-align: left !important;
+        margin: 0 !important;
         margin-bottom: 5px !important;
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+        word-wrap: break-word !important;
     }
     
     .coordinators-grid .coordinator-info .contact {
         text-align: left !important;
+        margin: 0 !important;
+        font-size: 1rem !important;
+        line-height: 1.2 !important;
     }
     
     .all-coordinators-section .coordinator-image {
@@ -3420,7 +3446,9 @@ Z-INDEX LAYERING:
     
     .coordinators-grid .coordinator-image {
         min-width: 70px !important;
+        max-width: 70px !important;
         min-height: 70px !important;
+        max-height: 70px !important;
         width: 70px !important;
         height: 70px !important;
     }
@@ -3428,5 +3456,14 @@ Z-INDEX LAYERING:
     .coordinators-grid .coordinator-image img {
         min-width: 100% !important;
         min-height: 100% !important;
+    }
+    
+    .coordinators-grid .coordinator-info h3,
+    .coordinators-grid .coordinator-info .coordinator-name {
+        font-size: 1rem !important;
+    }
+    
+    .coordinators-grid .coordinator-info .contact {
+        font-size: 0.95rem !important;
     }
 }
