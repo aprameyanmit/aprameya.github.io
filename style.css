@@ -1074,16 +1074,16 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive */
 @media (max-width: 768px) {
     .carousel-cylinder-container {
-        padding: 60px 10px;
+        padding: 80px 10px;
         overflow-x: hidden;
         overflow-y: visible;
         max-width: 100%;
         position: relative;
-        min-height: 500px;
+        min-height: 600px;
     }
     
     .carousel-cylinder-scene {
-        height: 500px;
+        height: 600px;
         perspective: 700px;
         overflow-x: hidden;
         overflow-y: visible;
@@ -1151,12 +1151,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
     .carousel-cylinder-container {
-        padding: 60px 5px;
-        min-height: 450px;
+        padding: 80px 5px;
+        min-height: 550px;
     }
     
     .carousel-cylinder-scene {
-        height: 450px;
+        height: 550px;
         perspective: 600px;
         overflow-x: hidden;
         overflow-y: visible;
