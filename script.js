@@ -339,18 +339,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            // Adjust offset based on screen size and section
-            let offset = 80; // Default navbar height
-            
-            // Add extra offset for events section to prevent heading from being hidden
-            if (target.id === 'events') {
-                offset = window.innerWidth <= 768 ? 150 : 100; // Much more space on mobile
-            }
-            
-            const offsetTop = target.offsetTop - offset;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+            // Use CSS scroll-margin-top for offset, just trigger smooth scroll
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
