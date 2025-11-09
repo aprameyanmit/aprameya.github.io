@@ -832,7 +832,8 @@ h1, h2, h3, h4, h5, h6 {
 .events {
     padding: 120px 0 100px 0;
     background: linear-gradient(180deg, rgba(10, 10, 15, 0) 0%, rgba(26, 26, 46, 0.3) 100%);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
     position: relative;
 }
 
@@ -1073,7 +1074,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive */
 @media (max-width: 768px) {
     .carousel-cylinder-container {
-        padding: 20px 10px;
+        padding: 40px 10px;
         overflow-x: hidden;
         overflow-y: visible;
         max-width: 100%;
@@ -1081,7 +1082,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .carousel-cylinder-scene {
-        height: 320px;
+        height: 400px;
         perspective: 700px;
         overflow-x: hidden;
         overflow-y: visible;
@@ -1148,8 +1149,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 480px) {
+    .carousel-cylinder-container {
+        padding: 40px 5px;
+    }
+    
     .carousel-cylinder-scene {
-        height: 280px;
+        height: 350px;
         perspective: 600px;
         overflow-x: hidden;
         overflow-y: visible;
