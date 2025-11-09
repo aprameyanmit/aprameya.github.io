@@ -3266,3 +3266,27 @@ Z-INDEX LAYERING:
         padding-top: 70px !important;
     }
 }
+
+/* ============================
+   iOS SAFARI SPECIFIC FIXES
+   ============================ */
+/* Fix phone number color visibility on iPhone */
+@supports (-webkit-touch-callout: none) {
+    /* Target all contact/phone number elements */
+    .contact,
+    .coordinator-info .contact,
+    .coordinators-grid .coordinator-info .contact,
+    .all-coordinators-section .coordinator-info .contact,
+    .hackathon-coordinators .coordinator-info .contact {
+        color: #22d3ee !important; /* Bright cyan for iPhone visibility */
+        text-shadow: 0 0 10px rgba(34, 211, 238, 0.5) !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Ensure coordinator contact remains visible */
+    .coordinator-contact {
+        color: #22d3ee !important;
+        text-shadow: 0 0 10px rgba(34, 211, 238, 0.5) !important;
+    }
+}
+
