@@ -1309,7 +1309,7 @@ h1, h2, h3, h4, h5, h6 {
    GENERAL RULES SECTION
    ============================ */
 .rules {
-    padding: 40px 0;
+    padding: 0 0 40px 0;
     background: linear-gradient(180deg, rgba(26, 26, 46, 0.3) 0%, rgba(10, 10, 15, 0) 100%);
 }
 
@@ -2905,7 +2905,7 @@ h1, h2, h3, h4, h5, h6 {
 
     /* General Rules Mobile */
     .rules {
-        padding: 30px 0;
+        padding: 0 0 30px 0;
     }
 
     .rules-container {
