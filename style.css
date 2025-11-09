@@ -2517,6 +2517,18 @@ h1, h2, h3, h4, h5, h6 {
         overflow: hidden;
     }
 
+    .hero-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hero-image {
+        margin: 0 auto;
+        display: block;
+    }
+
     /* Hide Desktop Nav on Mobile */
     .desktop-nav {
         display: none !important;
@@ -3139,6 +3151,18 @@ h1, h2, h3, h4, h5, h6 {
         /* Disable animations on small mobile screens for performance */
         animation: none !important;
         filter: drop-shadow(0 8px 30px rgba(255, 215, 0, 0.4)) !important;
+    }
+
+    .hero-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hero-image {
+        margin: 0 auto;
+        display: block;
     }
 
     .hero-tagline {
