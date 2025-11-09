@@ -848,8 +848,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .events .section-heading {
     text-align: center;
-    margin-top: -60px;
+    margin-top: 0;
     margin-bottom: 80px;
+    padding-top: 0;
+    position: relative;
+    z-index: 10;
 }
 
 /* ============================
