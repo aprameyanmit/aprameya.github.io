@@ -767,6 +767,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 60px;
+    padding-top: 80px;
     background: linear-gradient(135deg, var(--primary-purple), var(--cyan));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -790,7 +791,7 @@ h1, h2, h3, h4, h5, h6 {
    ABOUT SECTION
    ============================ */
 .about {
-    padding: 80px 0;
+    padding: 0 0 100px 0;
     position: relative;
     min-height: 100vh;
     scroll-margin-top: 70px;
@@ -841,7 +842,7 @@ h1, h2, h3, h4, h5, h6 {
    EVENTS SECTION
    ============================ */
 .events {
-    padding: 90px 0 100px 0;
+    padding: 0 0 100px 0;
     background: linear-gradient(180deg, rgba(10, 10, 15, 0) 0%, rgba(26, 26, 46, 0.3) 100%);
     position: relative;
     overflow: visible;
@@ -853,7 +854,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin-top: 0;
     margin-bottom: 60px;
-    padding-top: 0;
+    padding-top: 80px;
     position: relative;
     z-index: 10;
 }
@@ -2843,19 +2844,23 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Events Section Mobile */
     .about {
-        padding: 80px 0;
+        padding: 0 0 80px 0;
         scroll-margin-top: 80px;
     }
 
     .events {
-        padding: 80px 0 80px 0;
+        padding: 0 0 80px 0;
         scroll-margin-top: 80px;
     }
 
     .events .section-heading {
         margin-top: 0;
         margin-bottom: 40px;
-        padding-top: 20px;
+        padding-top: 80px;
+    }
+
+    .section-heading {
+        padding-top: 80px;
     }
 
     /* Countdown Timer Mobile */
@@ -3217,24 +3222,25 @@ h1, h2, h3, h4, h5, h6 {
 
     /* About and Events Section Small Mobile */
     .about {
-        padding: 80px 0;
+        padding: 0 0 60px 0;
         scroll-margin-top: 80px;
     }
 
     .events {
-        padding: 80px 0 60px 0;
+        padding: 0 0 60px 0;
         scroll-margin-top: 80px;
     }
 
     .events .section-heading {
         margin-top: 0;
         margin-bottom: 30px;
-        padding-top: 20px;
+        padding-top: 80px;
         font-size: 1.8rem;
     }
 
     .section-heading {
         font-size: 1.8rem;
+        padding-top: 80px;
     }
 
     .event-card {
