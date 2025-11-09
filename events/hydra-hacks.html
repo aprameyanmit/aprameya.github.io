@@ -336,6 +336,102 @@
                 display: none !important;
             }
         }
+
+        /* iOS Safari Specific Fixes - Force bright colors */
+        @supports (-webkit-touch-callout: none) {
+            /* iOS detected - Fix all color issues */
+            
+            body {
+                background: #1a0f2e !important;
+                background: linear-gradient(135deg, #0f0820 0%, #1a0f2e 25%, #2d1b3d 50%, #1a0f2e 75%, #0f0820 100%) !important;
+                background-attachment: fixed !important;
+            }
+            
+            .event-header {
+                background: rgba(138, 43, 226, 0.25) !important;
+                border: 2px solid rgba(168, 85, 247, 0.6) !important;
+                box-shadow: 
+                    0 0 40px rgba(168, 85, 247, 0.5),
+                    0 0 80px rgba(236, 72, 153, 0.3) !important;
+            }
+            
+            .event-header::before {
+                background: linear-gradient(45deg, transparent 30%, rgba(168, 85, 247, 0.15) 50%, transparent 70%) !important;
+            }
+            
+            .event-title {
+                color: #bb6dff !important;
+                text-shadow: 
+                    0 0 20px rgba(187, 109, 255, 0.9),
+                    0 0 40px rgba(236, 72, 153, 0.7),
+                    0 0 60px rgba(139, 92, 246, 0.5) !important;
+            }
+            
+            .event-subtitle {
+                color: #fcd34d !important;
+                text-shadow: 
+                    0 0 15px rgba(252, 211, 77, 0.9),
+                    0 0 30px rgba(251, 191, 36, 0.6) !important;
+            }
+            
+            .ai-badge {
+                background: linear-gradient(135deg, #9333ea, #ec4899) !important;
+                box-shadow: 
+                    0 0 30px rgba(147, 51, 234, 0.7),
+                    0 0 50px rgba(236, 72, 153, 0.5) !important;
+            }
+            
+            .ai-grid-overlay {
+                background-image: 
+                    linear-gradient(rgba(187, 109, 255, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(187, 109, 255, 0.08) 1px, transparent 1px) !important;
+            }
+            
+            /* Fix all cards and sections */
+            .info-card, .content-card {
+                background: rgba(45, 27, 61, 0.8) !important;
+                border: 1px solid rgba(168, 85, 247, 0.4) !important;
+                box-shadow: 
+                    0 8px 32px rgba(168, 85, 247, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            }
+            
+            /* Fix rule cards */
+            .rule-card {
+                background: rgba(45, 27, 61, 0.7) !important;
+                border-left: 4px solid #a855f7 !important;
+                box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2) !important;
+            }
+            
+            /* Fix buttons */
+            .beautiful-register-btn {
+                background: linear-gradient(135deg, #9333ea, #ec4899, #f59e0b) !important;
+                box-shadow: 
+                    0 0 30px rgba(147, 51, 234, 0.8),
+                    0 0 50px rgba(236, 72, 153, 0.6) !important;
+            }
+            
+            /* Fix deadline notice */
+            .registration-deadline-notice {
+                background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(139, 92, 246, 0.3)) !important;
+                border: 2px solid #ec4899 !important;
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.6) !important;
+            }
+            
+            /* Fix coordinator cards */
+            .coordinator-card {
+                background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(59, 130, 246, 0.1)) !important;
+                border: 2px solid rgba(168, 85, 247, 0.4) !important;
+                box-shadow: 
+                    0 8px 20px rgba(168, 85, 247, 0.3),
+                    inset 4px 4px 10px rgba(0, 0, 0, 0.3) !important;
+            }
+            
+            /* Ensure text is visible */
+            h2, h3, h4, p, li {
+                color: inherit !important;
+            }
+        }
     </style>
 </head>
 <body>
