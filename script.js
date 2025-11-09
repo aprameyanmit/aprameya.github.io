@@ -194,13 +194,13 @@ if (carouselCylinder && cylinderCards.length > 0) {
     // Responsive radius based on screen size - smaller radius shows more curve
     let radius = 500;
     if (window.innerWidth <= 768) {
-        radius = 280; // Smaller radius to show curve on mobile
+        radius = 250; // Reduced from 280 to prevent overflow
     }
     if (window.innerWidth <= 480) {
-        radius = 240; // Even smaller for small phones
+        radius = 200; // Reduced from 240
     }
     if (window.innerWidth <= 360) {
-        radius = 220; // Tiny phones
+        radius = 180; // Reduced from 220
     }
     
     let currentRotation = 0;
