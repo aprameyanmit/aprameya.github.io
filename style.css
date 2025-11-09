@@ -860,7 +860,8 @@ h1, h2, h3, h4, h5, h6 {
     perspective: 1400px;
     perspective-origin: 50% 50%;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .carousel-cylinder {
@@ -1073,20 +1074,20 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     .carousel-cylinder-container {
         padding: 20px 10px;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: visible;
         max-width: 100%;
         position: relative;
     }
     
     .carousel-cylinder-scene {
-        height: 280px;
+        height: 320px;
         perspective: 700px;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: visible;
         width: 100%;
         max-width: 100%;
         position: relative;
-        clip-path: inset(0);
-        -webkit-clip-path: inset(0);
     }
     
     .carousel-cylinder {
@@ -1148,13 +1149,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
     .carousel-cylinder-scene {
-        height: 240px;
+        height: 280px;
         perspective: 600px;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: visible;
         width: 100%;
         max-width: 100%;
-        clip-path: inset(0);
-        -webkit-clip-path: inset(0);
     }
     
     .event-card-cylinder {
