@@ -342,9 +342,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             // Adjust offset based on screen size and section
             let offset = 80; // Default navbar height
             
-            // Add extra offset for events section to prevent carousel from being cut
+            // Add extra offset for events section to prevent heading from being hidden
             if (target.id === 'events') {
-                offset = window.innerWidth <= 768 ? 100 : 100; // More space on mobile
+                offset = window.innerWidth <= 768 ? 150 : 100; // Much more space on mobile
             }
             
             const offsetTop = target.offsetTop - offset;
