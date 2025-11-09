@@ -2289,14 +2289,20 @@ Z-INDEX LAYERING:
     border: 4px solid var(--primary-purple);
     background: rgba(139, 92, 246, 0.2);
     box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+    flex-shrink: 0; /* Prevent compression */
 }
 
 .coordinator-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: center center;
     display: block;
+    /* Force proper rendering on Android */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .image-placeholder {
@@ -3290,3 +3296,57 @@ Z-INDEX LAYERING:
     }
 }
 
+/* ============================
+   ANDROID MOBILE FIXES
+   ============================ */
+/* Fix compressed/squeezed coordinator images on Android phones */
+@media (max-width: 768px) {
+    /* Ensure images maintain aspect ratio and don't get compressed */
+    .coordinator-image {
+        min-width: 100px;
+        min-height: 100px;
+        flex-shrink: 0 !important;
+        aspect-ratio: 1 / 1;
+    }
+    
+    .coordinator-image img {
+        object-fit: cover !important;
+        object-position: center !important;
+        min-width: 100%;
+        min-height: 100%;
+        width: 100% !important;
+        height: 100% !important;
+        flex-shrink: 0;
+    }
+    
+    .coordinator-card {
+        min-width: 0; /* Allow card to shrink but not image */
+    }
+    
+    .coordinators-grid .coordinator-image {
+        min-width: 70px;
+        min-height: 70px;
+    }
+    
+    .all-coordinators-section .coordinator-image {
+        min-width: 90px;
+        min-height: 90px;
+    }
+    
+    .hackathon-coordinators .coordinator-image {
+        min-width: 80px;
+        min-height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coordinator-image {
+        min-width: 80px;
+        min-height: 80px;
+    }
+    
+    .coordinators-grid .coordinator-image {
+        min-width: 60px;
+        min-height: 60px;
+    }
+}
