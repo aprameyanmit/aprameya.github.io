@@ -741,8 +741,8 @@
     <div class="menu-backdrop" id="menuBackdrop"></div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar" id="navbar" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; z-index: 9999 !important;">
-        <div class="nav-container" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; z-index: 10000 !important;">
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
             <div class="nav-left">
                 <img src="../images/clg.png" alt="Fest Logo" class="logo">
             </div>
@@ -1071,7 +1071,7 @@
             const navbar = document.getElementById('navbar');
             const navContainer = document.querySelector('.nav-container');
             
-            // FORCE NAVBAR AND NAV-CONTAINER TO BE FIXED ON LOAD
+            // FORCE NAVBAR TO BE FIXED ON LOAD
             if (navbar) {
                 navbar.style.setProperty('position', 'fixed', 'important');
                 navbar.style.setProperty('top', '0', 'important');
@@ -1080,12 +1080,10 @@
                 navbar.style.setProperty('z-index', '9999', 'important');
             }
             
+            // Nav-container should be relative inside fixed navbar
             if (navContainer) {
-                navContainer.style.setProperty('position', 'fixed', 'important');
-                navContainer.style.setProperty('top', '0', 'important');
-                navContainer.style.setProperty('left', '0', 'important');
+                navContainer.style.setProperty('position', 'relative', 'important');
                 navContainer.style.setProperty('width', '100%', 'important');
-                navContainer.style.setProperty('z-index', '10000', 'important');
             }
             
             // Force close menu on page load
@@ -1109,20 +1107,17 @@
             const navContainer = document.querySelector('.nav-container');
             const logo = document.querySelector('.logo');
             
-            // Only change logo on scroll for desktop (screen width > 768px)
-            // Force navbar and nav-container to stay fixed with !important styles preserved
+            // Force navbar to stay fixed on scroll
             navbar.style.setProperty('position', 'fixed', 'important');
             navbar.style.setProperty('top', '0', 'important');
             navbar.style.setProperty('left', '0', 'important');
             navbar.style.setProperty('width', '100%', 'important');
             navbar.style.setProperty('z-index', '9999', 'important');
             
+            // Nav-container should be relative inside fixed navbar
             if (navContainer) {
-                navContainer.style.setProperty('position', 'fixed', 'important');
-                navContainer.style.setProperty('top', '0', 'important');
-                navContainer.style.setProperty('left', '0', 'important');
+                navContainer.style.setProperty('position', 'relative', 'important');
                 navContainer.style.setProperty('width', '100%', 'important');
-                navContainer.style.setProperty('z-index', '10000', 'important');
             }
             
             const isMobile = window.innerWidth <= 768;
