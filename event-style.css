@@ -3326,50 +3326,77 @@ Z-INDEX LAYERING:
 @media (max-width: 768px) {
     /* Ensure images maintain aspect ratio and don't get compressed */
     .coordinator-image {
-        min-width: 100px;
-        min-height: 100px;
+        min-width: 100px !important;
+        min-height: 100px !important;
         flex-shrink: 0 !important;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 1 !important;
     }
     
     .coordinator-image img {
         object-fit: cover !important;
         object-position: center !important;
-        min-width: 100%;
-        min-height: 100%;
+        min-width: 100% !important;
+        min-height: 100% !important;
         width: 100% !important;
         height: 100% !important;
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
     }
     
     .coordinator-card {
         min-width: 0; /* Allow card to shrink but not image */
     }
     
+    /* Student coordinators grid - force proper sizing */
+    .coordinators-grid .coordinator-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
     .coordinators-grid .coordinator-image {
-        min-width: 70px;
-        min-height: 70px;
+        min-width: 80px !important;
+        min-height: 80px !important;
+        width: 80px !important;
+        height: 80px !important;
+        flex-shrink: 0 !important;
+        aspect-ratio: 1 / 1 !important;
+    }
+    
+    .coordinators-grid .coordinator-image img {
+        min-width: 100% !important;
+        min-height: 100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        flex-shrink: 0 !important;
     }
     
     .all-coordinators-section .coordinator-image {
-        min-width: 90px;
-        min-height: 90px;
+        min-width: 90px !important;
+        min-height: 90px !important;
     }
     
     .hackathon-coordinators .coordinator-image {
-        min-width: 80px;
-        min-height: 80px;
+        min-width: 80px !important;
+        min-height: 80px !important;
     }
 }
 
 @media (max-width: 480px) {
     .coordinator-image {
-        min-width: 80px;
-        min-height: 80px;
+        min-width: 80px !important;
+        min-height: 80px !important;
     }
     
     .coordinators-grid .coordinator-image {
-        min-width: 60px;
-        min-height: 60px;
+        min-width: 70px !important;
+        min-height: 70px !important;
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .coordinators-grid .coordinator-image img {
+        min-width: 100% !important;
+        min-height: 100% !important;
     }
 }
