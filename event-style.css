@@ -417,11 +417,12 @@ Z-INDEX LAYERING:
     }
     
     .nav-container {
-        padding: 8px 15px !important;
+        padding: 8px 5px 8px 0 !important;
     }
     
     .nav-left {
-        padding-left: 5px;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
     }
     
     .nav-right {
@@ -429,8 +430,9 @@ Z-INDEX LAYERING:
     }
     
     .logo {
-        width: 120px !important;
-        max-height: 45px !important;
+        width: 100px !important;
+        max-height: 40px !important;
+        margin-left: 0 !important;
     }
     
     .house-logo {
