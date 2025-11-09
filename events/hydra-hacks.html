@@ -68,41 +68,34 @@
             font-family: 'Orbitron', sans-serif !important;
             font-size: 4rem !important;
             font-weight: 900 !important;
-            background: linear-gradient(135deg, #a855f7, #ec4899, #8b5cf6, #d946ef);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: #a855f7; /* Fallback color for iOS */
+            /* Use solid color for better iOS compatibility */
+            color: #a855f7 !important;
             letter-spacing: 8px !important;
             text-shadow: 
-                0 0 30px rgba(138, 43, 226, 0.8),
-                0 0 60px rgba(138, 43, 226, 0.6);
+                0 0 30px rgba(168, 85, 247, 0.8),
+                0 0 60px rgba(236, 72, 153, 0.6),
+                0 0 80px rgba(139, 92, 246, 0.4);
             animation: titleGlow 2s ease-in-out infinite;
             position: relative;
             z-index: 2;
-            /* iOS Safari fix */
-            -webkit-text-stroke: 0.5px rgba(168, 85, 247, 0.5);
-        }
-        
-        /* iOS-specific fix */
-        @supports (-webkit-touch-callout: none) {
-            .event-title {
-                background: linear-gradient(135deg, #a855f7, #ec4899, #8b5cf6, #d946ef);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                /* Ensure gradient is visible on iOS */
-                -webkit-box-decoration-break: clone;
-                box-decoration-break: clone;
-            }
+            /* Add webkit text stroke for definition */
+            -webkit-text-stroke: 1px rgba(236, 72, 153, 0.3);
         }
         
         @keyframes titleGlow {
             0%, 100% {
-                filter: brightness(1) drop-shadow(0 0 30px rgba(138, 43, 226, 0.8));
+                filter: brightness(1) drop-shadow(0 0 30px rgba(168, 85, 247, 0.8));
+                text-shadow: 
+                    0 0 30px rgba(168, 85, 247, 0.8),
+                    0 0 60px rgba(236, 72, 153, 0.6),
+                    0 0 80px rgba(139, 92, 246, 0.4);
             }
             50% {
-                filter: brightness(1.3) drop-shadow(0 0 50px rgba(138, 43, 226, 1));
+                filter: brightness(1.3) drop-shadow(0 0 50px rgba(168, 85, 247, 1));
+                text-shadow: 
+                    0 0 40px rgba(168, 85, 247, 1),
+                    0 0 80px rgba(236, 72, 153, 0.8),
+                    0 0 100px rgba(139, 92, 246, 0.6);
             }
         }
         
@@ -266,12 +259,12 @@
                 letter-spacing: 1px !important;
                 line-height: 1.3;
                 word-spacing: normal;
-                /* Ensure gradient stays visible on mobile */
-                background: linear-gradient(135deg, #a855f7, #ec4899, #8b5cf6, #d946ef) !important;
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent !important;
-                background-clip: text !important;
-                -webkit-text-stroke: 0.3px rgba(168, 85, 247, 0.5);
+                /* Keep solid color for iOS */
+                color: #a855f7 !important;
+                -webkit-text-stroke: 0.5px rgba(236, 72, 153, 0.3);
+                text-shadow: 
+                    0 0 20px rgba(168, 85, 247, 0.8),
+                    0 0 40px rgba(236, 72, 153, 0.6);
             }
             
             .event-subtitle {
@@ -297,12 +290,12 @@
             .event-title {
                 font-size: 1.3rem !important;
                 letter-spacing: 0.5px !important;
-                /* Force gradient to stay on small screens */
-                background: linear-gradient(135deg, #a855f7, #ec4899, #8b5cf6, #d946ef) !important;
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent !important;
-                background-clip: text !important;
-                -webkit-text-stroke: 0.2px rgba(168, 85, 247, 0.4);
+                /* Solid color for small iPhone screens */
+                color: #a855f7 !important;
+                -webkit-text-stroke: 0.3px rgba(236, 72, 153, 0.3);
+                text-shadow: 
+                    0 0 15px rgba(168, 85, 247, 0.9),
+                    0 0 30px rgba(236, 72, 153, 0.7);
             }
             
             .event-subtitle {
