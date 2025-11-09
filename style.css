@@ -850,12 +850,12 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 20px 80px;
 }
 
 .carousel-cylinder-scene {
     width: 100%;
-    height: 450px;
+    height: 600px;
     perspective: 1400px;
     perspective-origin: 50% 50%;
     position: relative;
@@ -1070,14 +1070,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive */
 @media (max-width: 768px) {
     .carousel-cylinder-container {
-        padding: 20px 10px 80px;
+        padding: 40px 10px 60px;
         max-width: 100%;
         position: relative;
         min-height: 400px;
     }
     
     .carousel-cylinder-scene {
-        height: auto;
+        height: 450px;
         min-height: 400px;
         perspective: 700px;
         width: 100%;
@@ -1144,12 +1144,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
     .carousel-cylinder-container {
-        padding: 20px 5px 80px;
+        padding: 40px 5px 60px;
         min-height: 350px;
     }
     
     .carousel-cylinder-scene {
-        height: auto;
+        height: 400px;
         min-height: 350px;
         perspective: 600px;
         width: 100%;
