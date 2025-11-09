@@ -821,9 +821,8 @@
 
         <!-- Hackathon Intro Video -->
         <div class="video-section">
-            <h2 class="video-title">🎬 Hackathon Introduction Video</h2>
             <div class="video-container">
-                <video id="hackathonVideo" class="hackathon-video" poster="../images/hackathon.png">
+                <video id="hackathonVideo" class="hackathon-video" poster="../images/hackathon.png" autoplay loop muted>
                     <source src="../images/hackathon.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -1221,6 +1220,15 @@
         const progressBar = document.querySelector('.progress-bar');
         const progressFill = document.getElementById('progressFill');
         const timeDisplay = document.getElementById('timeDisplay');
+
+        // Initialize play/pause button state (video autoplays)
+        window.addEventListener('load', () => {
+            playPauseBtn.querySelector('.play-icon').style.display = 'none';
+            playPauseBtn.querySelector('.pause-icon').style.display = 'block';
+            // Video is muted by default for autoplay
+            muteBtn.querySelector('.unmute-icon').style.display = 'none';
+            muteBtn.querySelector('.mute-icon').style.display = 'block';
+        });
 
         // Play/Pause Toggle
         playPauseBtn.addEventListener('click', () => {
