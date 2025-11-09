@@ -416,22 +416,26 @@ Z-INDEX LAYERING:
         z-index: 1000 !important;
     }
     
+    .nav-container {
+        padding: 8px 15px !important;
+    }
+    
     .nav-left {
-        padding-left: 0;
+        padding-left: 5px;
     }
     
     .nav-right {
-        padding-right: 0; /* Reset desktop padding on mobile */
+        padding-right: 0;
     }
     
     .logo {
-        width: 160px; /* Increased from 140px */
-        max-height: 55px; /* Increased from 50px */
+        width: 120px !important;
+        max-height: 45px !important;
     }
     
     .house-logo {
-        width: 55px; /* Increased from 50px */
-        height: 55px; /* Increased from 50px */
+        width: 50px;
+        height: 50px;
     }
     
     /* Hide Desktop Nav on Mobile */
