@@ -790,10 +790,10 @@ h1, h2, h3, h4, h5, h6 {
    ABOUT SECTION
    ============================ */
 .about {
-    padding: 100px 0;
+    padding: 80px 0;
     position: relative;
     min-height: 100vh;
-    scroll-margin-top: 80px;
+    scroll-margin-top: 70px;
 }
 
 .about-grid {
@@ -841,18 +841,18 @@ h1, h2, h3, h4, h5, h6 {
    EVENTS SECTION
    ============================ */
 .events {
-    padding: 120px 0 100px 0;
+    padding: 90px 0 100px 0;
     background: linear-gradient(180deg, rgba(10, 10, 15, 0) 0%, rgba(26, 26, 46, 0.3) 100%);
     position: relative;
     overflow: visible;
     min-height: 100vh;
-    scroll-margin-top: 80px;
+    scroll-margin-top: 70px;
 }
 
 .events .section-heading {
     text-align: center;
     margin-top: 0;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     padding-top: 0;
     position: relative;
     z-index: 10;
@@ -2843,12 +2843,13 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Events Section Mobile */
     .about {
-        scroll-margin-top: 100px;
+        padding: 80px 0;
+        scroll-margin-top: 80px;
     }
 
     .events {
-        padding: 100px 0 80px 0;
-        scroll-margin-top: 100px;
+        padding: 80px 0 80px 0;
+        scroll-margin-top: 80px;
     }
 
     .events .section-heading {
@@ -3216,12 +3217,13 @@ h1, h2, h3, h4, h5, h6 {
 
     /* About and Events Section Small Mobile */
     .about {
-        scroll-margin-top: 100px;
+        padding: 80px 0;
+        scroll-margin-top: 80px;
     }
 
     .events {
         padding: 80px 0 60px 0;
-        scroll-margin-top: 100px;
+        scroll-margin-top: 80px;
     }
 
     .events .section-heading {
