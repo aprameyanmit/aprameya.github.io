@@ -278,6 +278,201 @@
                 0 0 10px rgba(251, 191, 36, 0.3);
         }
         
+        /* Video Section Styles */
+        .video-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .video-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #a855f7;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+        }
+        
+        .video-container {
+            position: relative;
+            background: linear-gradient(135deg, rgba(20, 20, 40, 0.95), rgba(30, 30, 60, 0.95));
+            border: 3px solid rgba(139, 92, 246, 0.6);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 
+                0 0 40px rgba(139, 92, 246, 0.4),
+                inset 0 0 30px rgba(139, 92, 246, 0.1);
+            overflow: hidden;
+        }
+        
+        .hackathon-video {
+            width: 100%;
+            border-radius: 15px;
+            display: block;
+            background: #000;
+            max-height: 600px;
+            object-fit: contain;
+        }
+        
+        .video-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .control-btn {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            flex-shrink: 0;
+        }
+        
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6);
+        }
+        
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .progress-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
+        }
+        
+        .time-display {
+            font-family: 'Orbitron', sans-serif;
+            color: #fbbf24;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .fullscreen-btn {
+            font-size: 1.8rem;
+        }
+        
+        /* Responsive Mobile Styles */
+        @media (max-width: 768px) {
+            .moving-text-container {
+                padding: 15px 20px;
+                margin: 20px auto;
+                border-width: 2px;
+            }
+            
+            .moving-text {
+                font-size: 1.1rem;
+                line-height: 1.5;
+            }
+            
+            .video-title {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .video-container {
+                padding: 10px;
+                border-width: 2px;
+            }
+            
+            .hackathon-video {
+                max-height: 300px;
+            }
+            
+            .video-controls {
+                gap: 10px;
+                padding: 10px 15px;
+                flex-wrap: wrap;
+            }
+            
+            .control-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .progress-container {
+                width: 100%;
+                order: 3;
+            }
+            
+            .time-display {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .moving-text-container {
+                padding: 12px 15px;
+                margin: 15px auto;
+            }
+            
+            .moving-text {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+            
+            .video-title {
+                font-size: 1.2rem;
+            }
+            
+            .video-section {
+                margin: 30px auto;
+            }
+            
+            .hackathon-video {
+                max-height: 250px;
+            }
+            
+            .control-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .time-display {
+                font-size: 0.75rem;
+            }
+        }
+        
         /* Responsive Mobile Styles */
         @media (max-width: 768px) {
             .moving-text-container {
@@ -621,6 +816,34 @@
         <div class="moving-text-container">
             <div class="moving-text">
                 📢 NOTE: Saturday morning 9.00 AM to afternoon 12.00 PM - Master class Followed by Q&A for 30 mins 📢
+            </div>
+        </div>
+
+        <!-- Hackathon Intro Video -->
+        <div class="video-section">
+            <h2 class="video-title">🎬 Hackathon Introduction Video</h2>
+            <div class="video-container">
+                <video id="hackathonVideo" class="hackathon-video" poster="../images/hackathon.png">
+                    <source src="../images/hackathon.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-controls">
+                    <button id="playPauseBtn" class="control-btn play-btn">
+                        <span class="play-icon">▶</span>
+                        <span class="pause-icon" style="display: none;">⏸</span>
+                    </button>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                        <span id="timeDisplay" class="time-display">0:00 / 0:00</span>
+                    </div>
+                    <button id="muteBtn" class="control-btn mute-btn">
+                        <span class="unmute-icon">🔊</span>
+                        <span class="mute-icon" style="display: none;">🔇</span>
+                    </button>
+                    <button id="fullscreenBtn" class="control-btn fullscreen-btn">⛶</button>
+                </div>
             </div>
         </div>
 
@@ -988,6 +1211,90 @@
         // Registration Deadline Alert
         window.addEventListener('load', function() {
             alert('⏰ Important: Registration for Hydra Hacks closes on 14th November 2025 at 11:59 PM. Register now!');
+        });
+
+        // Video Player Controls
+        const video = document.getElementById('hackathonVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const muteBtn = document.getElementById('muteBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const progressBar = document.querySelector('.progress-bar');
+        const progressFill = document.getElementById('progressFill');
+        const timeDisplay = document.getElementById('timeDisplay');
+
+        // Play/Pause Toggle
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.querySelector('.play-icon').style.display = 'none';
+                playPauseBtn.querySelector('.pause-icon').style.display = 'block';
+            } else {
+                video.pause();
+                playPauseBtn.querySelector('.play-icon').style.display = 'block';
+                playPauseBtn.querySelector('.pause-icon').style.display = 'none';
+            }
+        });
+
+        // Mute/Unmute Toggle
+        muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            if (video.muted) {
+                muteBtn.querySelector('.unmute-icon').style.display = 'none';
+                muteBtn.querySelector('.mute-icon').style.display = 'block';
+            } else {
+                muteBtn.querySelector('.unmute-icon').style.display = 'block';
+                muteBtn.querySelector('.mute-icon').style.display = 'none';
+            }
+        });
+
+        // Fullscreen Toggle
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+
+        // Update Progress Bar and Time
+        video.addEventListener('timeupdate', () => {
+            const progress = (video.currentTime / video.duration) * 100;
+            progressFill.style.width = progress + '%';
+            
+            const currentMinutes = Math.floor(video.currentTime / 60);
+            const currentSeconds = Math.floor(video.currentTime % 60);
+            const durationMinutes = Math.floor(video.duration / 60);
+            const durationSeconds = Math.floor(video.duration % 60);
+            
+            timeDisplay.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Seek functionality - Click on progress bar
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const percentage = clickX / rect.width;
+            video.currentTime = percentage * video.duration;
+        });
+
+        // Initialize time display
+        video.addEventListener('loadedmetadata', () => {
+            const durationMinutes = Math.floor(video.duration / 60);
+            const durationSeconds = Math.floor(video.duration % 60);
+            timeDisplay.textContent = `0:00 / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Video click to play/pause
+        video.addEventListener('click', () => {
+            playPauseBtn.click();
         });
     </script>
 </body>
