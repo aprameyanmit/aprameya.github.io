@@ -822,7 +822,7 @@
         <!-- Hackathon Intro Video -->
         <div class="video-section">
             <div class="video-container">
-                <video id="hackathonVideo" class="hackathon-video" poster="../images/hackathon.png" loop>
+                <video id="hackathonVideo" class="hackathon-video" poster="../images/hackathon.png" autoplay loop playsinline>
                     <source src="../images/hackathon.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -1221,21 +1221,46 @@
         const progressFill = document.getElementById('progressFill');
         const timeDisplay = document.getElementById('timeDisplay');
 
-        // Initialize play/pause button state and autoplay with sound
-        window.addEventListener('load', () => {
-            // Try to autoplay with sound
+        // Ensure video plays with sound on load
+        video.muted = false;
+        
+        // Try to play immediately
+        const playVideo = () => {
             video.play().then(() => {
+                console.log('Video playing with sound');
                 playPauseBtn.querySelector('.play-icon').style.display = 'none';
                 playPauseBtn.querySelector('.pause-icon').style.display = 'block';
-                // Video is unmuted
                 muteBtn.querySelector('.unmute-icon').style.display = 'block';
                 muteBtn.querySelector('.mute-icon').style.display = 'none';
             }).catch((error) => {
-                console.log('Autoplay was prevented:', error);
-                // If autoplay fails, show play button
-                playPauseBtn.querySelector('.play-icon').style.display = 'block';
-                playPauseBtn.querySelector('.pause-icon').style.display = 'none';
+                console.log('Autoplay blocked, trying with muted:', error);
+                // If blocked, try with muted
+                video.muted = true;
+                video.play().then(() => {
+                    playPauseBtn.querySelector('.play-icon').style.display = 'none';
+                    playPauseBtn.querySelector('.pause-icon').style.display = 'block';
+                    muteBtn.querySelector('.unmute-icon').style.display = 'none';
+                    muteBtn.querySelector('.mute-icon').style.display = 'block';
+                }).catch(() => {
+                    // Show play button if autoplay completely fails
+                    playPauseBtn.querySelector('.play-icon').style.display = 'block';
+                    playPauseBtn.querySelector('.pause-icon').style.display = 'none';
+                });
             });
+        };
+
+        // Try to play when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', playVideo);
+        } else {
+            playVideo();
+        }
+
+        // Also try when video metadata is loaded
+        video.addEventListener('loadeddata', () => {
+            if (video.paused) {
+                playVideo();
+            }
         });
 
         // Play/Pause Toggle
