@@ -10,6 +10,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Floating Hackathon Announcement Card -->
+    <div class="hackathon-float-card" id="hackathonCard">
+        <div class="card-glow"></div>
+        <div class="card-content">
+            <div class="card-header">
+                <span class="pulse-dot"></span>
+                <h3>🔥 HYDRA HACKS 2025</h3>
+            </div>
+            <div class="event-timeline">
+                <div class="timeline-item">
+                    <span class="timeline-icon">🎯</span>
+                    <div class="timeline-text">
+                        <strong>Registration Closes:</strong>
+                        <span class="highlight-date">Nov 14th</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-icon">💡</span>
+                    <div class="timeline-text">
+                        <strong>Seminar:</strong>
+                        <span class="highlight-date">Nov 15th</span>
+                    </div>
+                </div>
+                <div class="timeline-item featured">
+                    <span class="timeline-icon">🚀</span>
+                    <div class="timeline-text">
+                        <strong>Hackathon Day:</strong>
+                        <span class="highlight-date mega">Nov 21st (8 Hours)</span>
+                    </div>
+                </div>
+            </div>
+            <a href="events/hydra-hacks.html" class="card-cta">
+                <span>Register Now</span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+        <button class="card-close" id="closeHackathonCard">✕</button>
+    </div>
+
     <!-- Particle Background -->
     <div class="particles" id="particles"></div>
     <div class="fog-overlay"></div>
@@ -490,5 +529,33 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Hackathon Floating Card Close Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const hackathonCard = document.getElementById('hackathonCard');
+            const closeBtn = document.getElementById('closeHackathonCard');
+            
+            if (closeBtn && hackathonCard) {
+                closeBtn.addEventListener('click', function() {
+                    hackathonCard.style.animation = 'floatOut 0.5s ease-out forwards';
+                    setTimeout(() => {
+                        hackathonCard.style.display = 'none';
+                    }, 500);
+                });
+            }
+        });
+    </script>
+    <style>
+        @keyframes floatOut {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100px) scale(0.8);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 </html>
