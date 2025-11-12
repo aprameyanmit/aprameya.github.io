@@ -876,6 +876,7 @@ h1, h2, h3, h4, h5, h6 {
     perspective: 1400px;
     perspective-origin: 50% 50%;
     position: relative;
+    pointer-events: none;
 }
 
 .carousel-cylinder {
@@ -886,6 +887,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    pointer-events: none;
 }
 
 .event-card-cylinder {
@@ -902,6 +904,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-backface-visibility: hidden;
     transform: translateZ(0);
     will-change: transform, opacity;
+    pointer-events: auto;
 }
 
 .event-card-cylinder.center {
@@ -925,6 +928,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.5s ease;
     transform-style: flat;
     position: relative;
+    pointer-events: auto;
 }
 
 .event-card-cylinder.center .event-card-inner {
