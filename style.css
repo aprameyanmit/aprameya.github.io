@@ -1009,7 +1009,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
     font-size: 15px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: pointer !important;
     transition: all 0.4s ease;
     box-shadow: 0 5px 20px rgba(180, 168, 144, 0.3);
     text-decoration: none;
@@ -1018,7 +1018,8 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     margin-top: auto;
     flex-shrink: 0;
-    pointer-events: auto;
+    pointer-events: auto !important;
+    z-index: 10;
 }
 
 .event-card-cylinder.center .register-btn {
