@@ -850,6 +850,8 @@ h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 70px;
 }
 
+/* .events .container removed; heading and scene already interactive */
+
 .events .section-heading {
     text-align: center;
     margin-top: 0;
@@ -857,64 +859,73 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 20px;
     position: relative;
     z-index: 1;
+    pointer-events: auto;
 }
 
 /* ============================
    3D CYLINDRICAL CAROUSEL
    ============================ */
-.carousel-cylinder-container {
+/* container removed: styles moved to scene */
+.carousel-cylinder-scene {
     position: relative;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px 20px 0;
-    pointer-events: none;
-    z-index: 500;
+    pointer-events: auto;
     isolation: isolate;
 }
 
+/* scene now acts as outer wrapper */
 .carousel-cylinder-scene {
     width: 100%;
-    height: 600px;
-    perspective: 1400px;
+    height: auto;
+    perspective: none;
     perspective-origin: 50% 50%;
-    position: relative;
-    pointer-events: none;
-    z-index: 500;
+    pointer-events: auto;
+    overflow: hidden;
 }
 
 .carousel-cylinder {
     width: 100%;
-    height: 100%;
+    height: auto;
     position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transform: none;
+    transform-style: flat;
+    transition: none;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    pointer-events: none;
+    pointer-events: auto;
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 10px 20px;
 }
 
+
 .event-card-cylinder {
-    position: absolute;
-    width: 280px;
-    height: 400px;
-    left: 50%;
-    top: 50%;
-    margin-left: -140px;
-    margin-top: -200px;
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    opacity: 0.3;
+    position: relative;
+    flex: 0 0 320px;
+    width: 320px;
+    height: auto;
+    margin: 0;
+    transition: none;
+    opacity: 1;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    will-change: transform, opacity;
+    transform: none;
+    will-change: auto;
     pointer-events: auto !important;
-    z-index: 500;
+    z-index: auto;
+    scroll-snap-align: start;
 }
 
 .event-card-cylinder.center {
     opacity: 1;
-    z-index: 1000;
+    z-index: auto;
 }
 
 .event-card-inner {
@@ -934,48 +945,6 @@ h1, h2, h3, h4, h5, h6 {
     transform-style: flat;
     position: relative;
     pointer-events: auto !important;
-}
-
-.event-card-cylinder {
-    position: absolute;
-    width: 280px;
-    height: 400px;
-    left: 50%;
-    top: 50%;
-    margin-left: -140px;
-    margin-top: -200px;
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    opacity: 0.3;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    will-change: transform, opacity;
-    pointer-events: auto;
-    z-index: 500;
-}
-
-.event-card-cylinder.center {
-    opacity: 1;
-    z-index: 1000;
-}
-
-.event-card-inner {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(145deg, rgba(26, 26, 46, 0.98), rgba(16, 16, 36, 0.98));
-    border-radius: 20px;
-    padding: 20px;
-    border: 2px solid rgba(180, 168, 144, 0.3);
-    box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.8),
-        inset 0 0 20px rgba(180, 168, 144, 0.05);
-    backdrop-filter: blur(20px);
-    display: flex;
-    flex-direction: column;
-    transition: all 0.5s ease;
-    transform-style: flat;
-    position: relative;
-    pointer-events: auto;
 }
 
 .event-card-cylinder.center .event-card-inner {
@@ -1021,9 +990,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.6s ease;
 }
 
-.event-card-cylinder.center .event-image img {
-    transform: scale(1.05);
-}
+.event-card-cylinder.center .event-image img { transform: none; }
 
 .event-card-cylinder h3 {
     font-size: 1.4rem;
@@ -1034,10 +1001,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
 }
 
-.event-card-cylinder.center h3 {
-    color: var(--white);
-    text-shadow: 0 0 25px rgba(180, 168, 144, 0.8);
-}
+.event-card-cylinder.center h3 { color: var(--cyan); text-shadow: 0 0 15px rgba(180,168,144,0.5); }
 
 .event-card-cylinder p {
     color: var(--text-secondary);
@@ -1047,9 +1011,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-grow: 1;
 }
 
-.event-card-cylinder.center p {
-    color: rgba(255, 255, 255, 0.9);
-}
+.event-card-cylinder.center p { color: var(--text-secondary); }
 
 .event-card-cylinder .register-btn {
     width: 100%;
@@ -1070,9 +1032,398 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: auto;
     flex-shrink: 0;
     pointer-events: auto !important;
-    z-index: 9999;
-    transform: translateZ(100px);
+    z-index: 1;
+    transform: none;
 }
+
+/* Slider Nav */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.slider-nav-btn {
+    pointer-events: auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(26, 26, 46, 0.9);
+    border: 2px solid var(--cyan);
+    color: var(--cyan);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.slider-nav-btn:hover {
+    background: var(--primary-purple);
+    border-color: var(--white);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+/* Responsive card widths */
+@media (max-width: 1024px) {
+    .event-card-cylinder { flex-basis: 280px; width: 280px; }
+}
+@media (max-width: 768px) {
+    .carousel-cylinder { gap: 16px; padding: 10px 8px 16px; }
+    .event-card-cylinder { flex-basis: 70%; width: 70%; }
+}
+@media (max-width: 480px) {
+    .event-card-cylinder { flex-basis: 85%; width: 85%; }
+}
+
+/* ============================
+   3D CYLINDER MODE (scoped)
+   ============================ */
+.events.vertical-scroll .carousel-cylinder {
+    position: relative;
+    max-height: 650px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    scroll-snap-type: y mandatory;
+    align-items: center; /* center cards horizontally */
+}
+
+.events.vertical-scroll .carousel-cylinder-inner {
+    position: static;
+    transform: none !important;
+    display: contents; /* flatten children */
+    pointer-events: auto;
+}
+
+.events.vertical-scroll .event-card-cylinder {
+    position: relative;
+    left: auto; top: auto; margin: 0;
+    width: 100%; max-width: var(--card-max-width);
+    margin: 0 auto; /* horizontal centering */
+    height: auto;
+    opacity: 1;
+    transform: none !important;
+    scroll-snap-align: start;
+    z-index: 10;
+}
+
+.events.vertical-scroll .event-card-inner {
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+.events.vertical-scroll .event-card-inner:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 25px rgba(180,168,144,.35);
+}
+
+/* Responsive rectangular images in vertical mode */
+.events.vertical-scroll .event-card-cylinder .event-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 15px;
+}
+@media (max-width: 768px) {
+    .events.vertical-scroll .event-card-cylinder .event-image img { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 480px) {
+    .events.vertical-scroll .event-card-cylinder .event-image img { aspect-ratio: 1 / 1; }
+}
+
+.events.vertical-scroll .slider-nav.vertical {
+    /* Reposition beside centered cards */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(var(--card-max-width, 900px)/2 + 38px), -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 1200;
+    pointer-events: auto; /* allow clicks */
+}
+.events.vertical-scroll .slider-nav.vertical .slider-nav-btn {
+    pointer-events: auto;
+    position: relative;
+}
+.events.vertical-scroll .slider-nav.vertical .slider-nav-btn:active {
+    transform: scale(0.92);
+}
+
+/* Card width variable for positioning nav */
+.events.vertical-scroll { --card-max-width: 720px; }
+@media (max-width: 1100px){ .events.vertical-scroll { --card-max-width: 600px; } }
+@media (max-width: 900px){ .events.vertical-scroll { --card-max-width: 520px; } }
+@media (max-width: 768px){
+    .events.vertical-scroll { --card-max-width: 100%; }
+    .events.vertical-scroll .slider-nav.vertical {
+        left: auto;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+@media (max-width: 480px){
+    .events.vertical-scroll .slider-nav.vertical {
+        right: 8px;
+        gap: 10px;
+    }
+    .events.vertical-scroll .slider-nav.vertical .slider-nav-btn {
+        width: 42px; height: 42px; font-size: 22px;
+    }
+}
+
+/* Smaller register buttons scoped to vertical scroll */
+.events.vertical-scroll .event-card-cylinder .register-btn {
+    /* Professional prominent button override for vertical scroll */
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    padding: 14px 22px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 12px;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    margin: 12px auto 0;
+    white-space: nowrap;
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--indigo) 60%, var(--cyan) 100%);
+    background-size: 200% 200%;
+    box-shadow: 0 6px 24px -6px rgba(0,0,0,0.45), 0 3px 8px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    transition: background-position 1.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* =============================
+   SINGLE CARD SCROLL MODE
+   Shows one centered card; arrows move between cards
+============================= */
+.events.single-card-scroll {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --card-max-width: 600px;
+    padding: 20px 0 40px;
+}
+.events.single-card-scroll h2.section-heading { margin-bottom: 28px; }
+
+.events.single-card-scroll .carousel-cylinder {
+    position: relative;
+    width: 100%;
+    max-width: var(--card-max-width);
+    height: 520px; /* viewport for single card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 12px;
+}
+@media (max-width: 768px){
+    .events.single-card-scroll .carousel-cylinder { height: 500px; --card-max-width: 520px; }
+}
+@media (max-width: 480px){
+    .events.single-card-scroll .carousel-cylinder { height: 480px; --card-max-width: 92%; }
+}
+
+.events.single-card-scroll .carousel-cylinder-inner { position: relative; width: 100%; height: 100%; }
+
+.events.single-card-scroll .event-card-cylinder {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.45s ease;
+    display: none; /* hide by default */
+}
+/* Fallback: show first card if JS fails to activate */
+.events.single-card-scroll .event-card-cylinder:first-of-type {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+.events.single-card-scroll .event-card-cylinder.active {
+    opacity: 1;
+    pointer-events: auto;
+    display: flex;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 2;
+}
+.events.single-card-scroll .event-card-inner { width: 100%; }
+
+.events.single-card-scroll .event-card-cylinder:not(.active) { z-index: 1; }
+
+.events.single-card-scroll .slider-nav.vertical {
+    position: absolute;
+    top: 50%;
+    right: calc((100vw - var(--card-max-width)) / 2 - 60px);
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 10;
+}
+@media (max-width: 1000px){
+    .events.single-card-scroll .slider-nav.vertical { right: 40px; }
+}
+@media (max-width: 768px){
+    .events.single-card-scroll .slider-nav.vertical { right: 24px; gap: 14px; }
+}
+@media (max-width: 480px){
+    .events.single-card-scroll .slider-nav.vertical { right: 14px; gap: 12px; }
+}
+
+.events.single-card-scroll .slider-nav.vertical .slider-nav-btn {
+    width: 54px; height: 54px; font-size: 26px;
+    backdrop-filter: blur(6px);
+    background: rgba(30,30,40,0.65);
+    border: 2px solid rgba(180,168,144,0.35);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+@media (max-width: 768px){
+    .events.single-card-scroll .slider-nav.vertical .slider-nav-btn { width:48px; height:48px; font-size:24px; }
+}
+@media (max-width: 480px){
+    .events.single-card-scroll .slider-nav.vertical .slider-nav-btn { width:44px; height:44px; font-size:22px; }
+}
+
+/* Reuse prominent button styling inside single card scroll */
+.events.single-card-scroll .event-card-cylinder .register-btn {
+    width: 100%;
+    max-width: 340px;
+    margin: 14px auto 0;
+}
+@media (max-width: 480px){
+    .events.single-card-scroll .event-card-cylinder .register-btn { max-width: 280px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .events.vertical-scroll .event-card-cylinder .register-btn { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+}
+.events.vertical-scroll .event-card-cylinder .register-btn:hover,
+.events.vertical-scroll .event-card-cylinder .register-btn:focus-visible {
+    background-position: 100% 0%;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px -6px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.12) inset;
+}
+.events.vertical-scroll .event-card-cylinder .register-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 16px -4px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1) inset;
+}
+.events.vertical-scroll .event-card-cylinder .register-btn:focus-visible {
+    outline: 3px solid var(--cyan);
+    outline-offset: 2px;
+}
+@media (max-width: 768px){
+    .events.vertical-scroll .event-card-cylinder .register-btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        border-radius: 11px;
+        max-width: 300px;
+    }
+}
+@media (max-width: 480px){
+    .events.vertical-scroll .event-card-cylinder .register-btn {
+        padding: 11px 18px;
+        font-size: 0.8rem;
+        border-radius: 10px;
+        max-width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .events.vertical-scroll .carousel-cylinder { max-height: 70vh; padding: 10px 12px 24px; }
+    .events.vertical-scroll .event-card-cylinder { max-width: 100%; }
+}
+@media (max-width: 480px) {
+    .events.vertical-scroll .carousel-cylinder { max-height: 75vh; }
+}
+/* Scene wrapper removed; perspective applied directly to cylinder */
+.events.cyl-3d .carousel-cylinder {
+    height: 600px;
+    perspective: 1400px; /* acts as containing block for 3D */
+    perspective-origin: 50% 50%;
+    position: relative;
+    z-index: 10000; /* ensure cards and buttons sit above floating overlays */
+    overflow: visible;
+}
+
+/* Inner 3D rotating plane now target: .events.cyl-3d .carousel-cylinder > .carousel-cylinder-inner */
+.events.cyl-3d .carousel-cylinder-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    pointer-events: auto; /* allow interaction with children */
+    overflow: visible;
+}
+
+/* Hover lift to ensure buried cards become top and clickable */
+.events.cyl-3d .event-card-cylinder:hover {
+    z-index: 1600 !important;
+}
+.events.cyl-3d .event-card-cylinder:hover .event-card-inner {
+    transform: scale(1.03);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.8), 0 0 40px rgba(180,168,144,0.35);
+}
+
+.events.cyl-3d .event-card-cylinder {
+    position: absolute;
+    width: 280px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    margin-left: -140px;
+    margin-top: -200px;
+    transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    opacity: 0.35;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, opacity;
+    pointer-events: auto !important; /* clickable */
+    z-index: 500;
+}
+
+.events.cyl-3d .event-card-cylinder.center {
+    opacity: 1;
+    z-index: 1000;
+}
+
+.events.cyl-3d .event-card-inner {
+    pointer-events: auto !important;
+}
+
+.events.cyl-3d .event-card-cylinder .register-btn {
+    transform: none;
+    z-index: 10010; /* above floating card and nav */
+    pointer-events: auto !important; /* ensure always clickable */
+}
+
+.events.cyl-3d .slider-nav { display: flex; pointer-events: none; }
+.events.cyl-3d .slider-nav-btn { pointer-events: auto; }
 
 .event-card-cylinder.center .register-btn {
     background: linear-gradient(135deg, var(--cyan), var(--primary-purple));
@@ -1100,6 +1451,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 40px;
     pointer-events: none !important;
     z-index: 2000;
+    display: none !important;
 }
 
 .carousel-nav-btn {
@@ -1139,12 +1491,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .carousel-cylinder-container {
-        padding: 40px 10px 60px;
-        max-width: 100%;
-        position: relative;
-        min-height: 400px;
-    }
+    .events.cyl-3d .carousel-cylinder { min-height: 400px; }
     
     .carousel-cylinder-scene {
         height: 450px;
@@ -1213,10 +1560,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 480px) {
-    .carousel-cylinder-container {
-        padding: 40px 5px 60px;
-        min-height: 350px;
-    }
+    .events.cyl-3d .carousel-cylinder { min-height: 350px; }
     
     .carousel-cylinder-scene {
         height: 400px;
@@ -3430,6 +3774,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 2px solid rgba(139, 92, 246, 0.3);
     animation: floatIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     overflow: hidden;
+    pointer-events: none; /* don't block underlying interactions */
 }
 
 @keyframes floatIn {
@@ -3581,6 +3926,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
     position: relative;
     overflow: hidden;
+    pointer-events: auto; /* clickable even though parent is none */
 }
 
 .card-cta::before {
@@ -3629,6 +3975,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     z-index: 2;
+    pointer-events: auto; /* clickable even though parent is none */
 }
 
 .card-close:hover {

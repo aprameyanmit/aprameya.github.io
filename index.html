@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Philosopher:wght@400;700&family=Rubik+Wet+Paint&family=Macondo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=12.0">
+    <link rel="stylesheet" href="style.css?v=16.0">
 </head>
 <body>
     <!-- Floating Hackathon Announcement Card -->
@@ -192,12 +192,10 @@
     </section>
 
     <!-- Events Section -->
-    <section class="events" id="events">
-        <div class="container">
-            <h2 class="section-heading fade-in">Our Events</h2>
-            <div class="carousel-cylinder-container">
-                <div class="carousel-cylinder-scene">
-                    <div class="carousel-cylinder" id="carouselCylinder">
+    <section class="events single-card-scroll" id="events">
+        <h2 class="section-heading fade-in">Our Events</h2>
+            <div class="carousel-cylinder" id="carouselCylinder">
+                <div class="carousel-cylinder-inner">
                         <!-- Event Card 1 -->
                         <div class="event-card-cylinder">
                             <div class="event-card-inner">
@@ -235,7 +233,7 @@
                         <div class="event-card-cylinder">
                             <div class="event-card-inner">
                                 <div class="event-image">
-                                    <img src="images\itmanager.png" alt="Griffin's Command">
+                                    <img src="images/itmanager.png" alt="Griffin's Command">
                                 </div>
                                 <h3>Griffin's Command <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(IT Manager)</span></h3>
                                 <p>Guard the realm of innovation with wisdom and might</p>
@@ -268,7 +266,7 @@
                         <div class="event-card-cylinder">
                             <div class="event-card-inner">
                                 <div class="event-image">
-                                    <img src="images\photography.png" alt="Pegasus Frames">
+                                    <img src="images/photography.png" alt="Pegasus Frames">
                                 </div>
                                 <h3>Pegasus Frames <span style="font-size: 0.7em; color: rgba(180, 168, 144, 0.8);">(Photography)</span></h3>
                                 <p>Capture the magic, let your imagination take flight</p>
@@ -310,17 +308,16 @@
                         </div>
                     </div>
                 </div>
-                <!-- Navigation Buttons -->
-                <div class="carousel-nav">
-                    <button class="carousel-nav-btn prev-btn" id="prevCylinderBtn">
-                        <span>&#8249;</span>
+                <!-- Slider Navigation -->
+                <div class="slider-nav vertical">
+                    <button class="slider-nav-btn prev" id="eventsPrevBtn" aria-label="Scroll up">
+                        <span>↑</span>
                     </button>
-                    <button class="carousel-nav-btn next-btn" id="nextCylinderBtn">
-                        <span>&#8250;</span>
+                    <button class="slider-nav-btn next" id="eventsNextBtn" aria-label="Scroll down">
+                        <span>↓</span>
                     </button>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- General Rules Section -->
@@ -349,14 +346,14 @@
             <div class="coordinator-grid">
                 <div class="coordinator-card fade-in">
                     <div class="coordinator-image">
-                        <img src="images\hod.jpg" alt="Coordinator 1">
+                        <img src="images/hod.jpg" alt="Coordinator 1">
                     </div>
                     <h3>Dr.Sreekanth Rallapalli</h3>
                     <p>Head Of Department</p>
                 </div>
                 <div class="coordinator-card fade-in">
                     <div class="coordinator-image">
-                        <img src="images\sowmya.jpg" alt="Coordinator 2">
+                        <img src="images/sowmya.jpg" alt="Coordinator 2">
                     </div>
                     <h3>Mrs.Sowmya K</h3>
                     <p>Event Convenor</p>

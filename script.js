@@ -180,14 +180,18 @@ document.querySelectorAll('.fade-in').forEach(element => {
 });
 
 // ============================
-// 3D CYLINDRICAL CAROUSEL
+// 3D CYLINDRICAL CAROUSEL (scoped by .events.cyl-3d)
 // ============================
+const ENABLE_3D_CYLINDER = document.querySelector('.events.cyl-3d') !== null;
+const ENABLE_VERTICAL_SCROLL = document.querySelector('.events.vertical-scroll') !== null;
+const ENABLE_SINGLE_CARD_SCROLL = document.querySelector('.events.single-card-scroll') !== null;
 const carouselCylinder = document.getElementById('carouselCylinder');
+const carouselInner = document.querySelector('.carousel-cylinder-inner');
 const cylinderCards = document.querySelectorAll('.event-card-cylinder');
 const prevCylinderBtn = document.getElementById('prevCylinderBtn');
 const nextCylinderBtn = document.getElementById('nextCylinderBtn');
 
-if (carouselCylinder && cylinderCards.length > 0) {
+if (!ENABLE_VERTICAL_SCROLL && ENABLE_3D_CYLINDER && carouselInner && cylinderCards.length > 0) {
     const totalCards = cylinderCards.length;
     const anglePerCard = 360 / totalCards;
     
@@ -223,9 +227,10 @@ if (carouselCylinder && cylinderCards.length > 0) {
                 card.classList.remove('center');
             }
         });
+        updateDepthAndInteractivity();
     }
 
-    // Rotate carousel
+    // Rotate carousel by one step
     function rotateCylinder(direction) {
         if (isAnimating) return;
         isAnimating = true;
@@ -238,7 +243,7 @@ if (carouselCylinder && cylinderCards.length > 0) {
             currentIndex = (currentIndex - 1 + totalCards) % totalCards;
         }
 
-        carouselCylinder.style.transform = `rotateY(${currentRotation}deg)`;
+    carouselInner.style.transform = `rotateY(${currentRotation}deg)`;
 
         // Update center card after rotation
         setTimeout(() => {
@@ -249,61 +254,83 @@ if (carouselCylinder && cylinderCards.length > 0) {
                     card.classList.remove('center');
                 }
             });
+            updateDepthAndInteractivity();
             isAnimating = false;
         }, 400);
+    }
+
+    // Jump to a specific card index (shortest path)
+    function goToIndex(targetIndex) {
+        if (targetIndex === currentIndex || isAnimating) return;
+        isAnimating = true;
+
+        // Compute shortest direction
+        let forwardSteps = (targetIndex - currentIndex + totalCards) % totalCards;
+        let backwardSteps = (currentIndex - targetIndex + totalCards) % totalCards;
+
+        if (forwardSteps <= backwardSteps) {
+            currentRotation -= anglePerCard * forwardSteps;
+        } else {
+            currentRotation += anglePerCard * backwardSteps;
+        }
+        currentIndex = targetIndex;
+    carouselInner.style.transform = `rotateY(${currentRotation}deg)`;
+
+        setTimeout(() => {
+            cylinderCards.forEach((card, index) => {
+                if (index === currentIndex) card.classList.add('center');
+                else card.classList.remove('center');
+            });
+            updateDepthAndInteractivity();
+            isAnimating = false;
+        }, 400);
+    }
+
+    // Ensure proper stacking; keep all cards clickable
+    function updateDepthAndInteractivity() {
+        cylinderCards.forEach((card, index) => {
+            // Compute minimal signed angular distance from center card
+            let deltaIndex = (index - currentIndex);
+            // wrap into range [-half, half]
+            if (deltaIndex > totalCards / 2) deltaIndex -= totalCards;
+            if (deltaIndex < -totalCards / 2) deltaIndex += totalCards;
+            const deltaAngle = deltaIndex * anglePerCard; // degrees
+            const rad = (deltaAngle * Math.PI) / 180;
+
+            // zIndex weighting: front highest, back lowest
+            const depth = Math.cos(rad); // 1 front, -1 back
+            const z = 1000 + Math.round(depth * 500); // 500..1500
+            card.style.zIndex = String(z);
+
+            // Keep pointer events enabled so the button is always clickable
+            card.style.pointerEvents = 'auto';
+        });
     }
 
     // Initialize
     positionCards();
 
-    // Button controls
-    if (nextCylinderBtn) {
-        nextCylinderBtn.addEventListener('click', () => rotateCylinder('next'));
-    }
-
-    if (prevCylinderBtn) {
-        prevCylinderBtn.addEventListener('click', () => rotateCylinder('prev'));
-    }
+    // Button controls (reuse slider nav ids)
+    const nextCylinderBtn = document.getElementById('eventsNextBtn');
+    const prevCylinderBtn = document.getElementById('eventsPrevBtn');
+    if (nextCylinderBtn) { nextCylinderBtn.addEventListener('click', () => rotateCylinder('next')); }
+    if (prevCylinderBtn) { prevCylinderBtn.addEventListener('click', () => rotateCylinder('prev')); }
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            rotateCylinder('prev');
-        } else if (e.key === 'ArrowRight') {
-            rotateCylinder('next');
-        }
+        if (e.key === 'ArrowLeft') rotateCylinder('prev');
+        else if (e.key === 'ArrowRight') rotateCylinder('next');
     });
 
     // Touch/Swipe support for mobile
     let touchStartX = 0;
     let touchEndX = 0;
 
-    const carouselContainer = document.querySelector('.carousel-cylinder-container');
-    
+    const carouselContainer = document.querySelector('.carousel-cylinder');
     if (carouselContainer) {
-        carouselContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        carouselContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    // Swipe left - next
-                    rotateCylinder('next');
-                } else {
-                    // Swipe right - prev
-                    rotateCylinder('prev');
-                }
-            }
-        }
+        carouselContainer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        carouselContainer.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, { passive: true });
+        function handleSwipe() { const swipeThreshold = 50; const diff = touchStartX - touchEndX; if (Math.abs(diff) > swipeThreshold) { if (diff > 0) rotateCylinder('next'); else rotateCylinder('prev'); } }
     }
 
     // Auto-rotate (optional - uncomment to enable)
@@ -326,6 +353,93 @@ if (carouselCylinder && cylinderCards.length > 0) {
     }
     */
 }
+
+// ============================
+// EVENTS HORIZONTAL SLIDER
+// ============================
+
+(function initEventsSlider() {
+    if (ENABLE_3D_CYLINDER || ENABLE_VERTICAL_SCROLL) return; // skip when 3D or vertical
+    const track = document.getElementById('carouselCylinder');
+    if (!track) return;
+
+    const prev = document.getElementById('eventsPrevBtn');
+    const next = document.getElementById('eventsNextBtn');
+
+    const scrollByPage = (direction) => {
+        const viewport = track.clientWidth;
+        const gap = parseInt(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '16', 10);
+        const delta = viewport - gap;
+        track.scrollBy({ left: direction * delta, behavior: 'smooth' });
+    };
+
+    if (prev) prev.addEventListener('click', () => scrollByPage(-1));
+    if (next) next.addEventListener('click', () => scrollByPage(1));
+
+    // Optional: drag to scroll (mouse)
+    let isDown = false, startX = 0, scrollLeft = 0;
+    track.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; track.classList.add('dragging'); });
+    window.addEventListener('mouseup', () => { isDown = false; track.classList.remove('dragging'); });
+    track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('dragging'); });
+    track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.2;
+        track.scrollLeft = scrollLeft - walk;
+    });
+})();
+
+// ============================
+// EVENTS VERTICAL SCROLL NAV (separate from horizontal slider)
+// ============================
+(function initVerticalScrollNav() {
+    if (!ENABLE_VERTICAL_SCROLL) return;
+    const container = document.getElementById('carouselCylinder');
+    if (!container) return;
+    const upBtn = document.getElementById('eventsPrevBtn');
+    const downBtn = document.getElementById('eventsNextBtn');
+    const cards = Array.from(container.querySelectorAll('.event-card-cylinder'));
+    let currentIndex = 0;
+
+    function clamp(i){ return Math.max(0, Math.min(cards.length-1, i)); }
+
+    function scrollToIndex(i){
+        i = clamp(i);
+        currentIndex = i;
+        const targetTop = cards[i].offsetTop;
+        container.scrollTo({ top: targetTop, behavior: 'smooth' });
+    }
+
+    function updateCurrentIndexOnScroll(){
+        const scrollTop = container.scrollTop;
+        let nearest = 0; let nearestDist = Infinity;
+        cards.forEach((card, idx) => {
+            const dist = Math.abs(card.offsetTop - scrollTop);
+            if (dist < nearestDist){ nearestDist = dist; nearest = idx; }
+        });
+        currentIndex = nearest;
+    }
+
+    // Attach listeners
+    if (upBtn) upBtn.addEventListener('click', () => scrollToIndex(currentIndex - 1));
+    if (downBtn) downBtn.addEventListener('click', () => scrollToIndex(currentIndex + 1));
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowUp') { scrollToIndex(currentIndex - 1); }
+        else if (e.key === 'ArrowDown') { scrollToIndex(currentIndex + 1); }
+    });
+
+    // Sync index on manual scroll
+    let scrollTicking = false;
+    container.addEventListener('scroll', () => {
+        if (!scrollTicking){
+            scrollTicking = true;
+            requestAnimationFrame(() => { updateCurrentIndexOnScroll(); scrollTicking = false; });
+        }
+    });
+})();
 
 // ============================
 // SMOOTH SCROLL FOR ANCHOR LINKS
@@ -454,6 +568,17 @@ window.addEventListener('scroll', () => {
                     case gl.RG16F: return getSupportedFormat(gl, gl.RGBA16F, gl.RGBA, type);
                     default: return null;
                 }
+
+                // Click a non-center card to bring it to center
+                cylinderCards.forEach((card, index) => {
+                    card.addEventListener('click', (e) => {
+                        // Don't hijack clicks on links/buttons inside the card
+                        if (e.target.closest('a, button')) return;
+                        if (index !== currentIndex) {
+                            goToIndex(index);
+                        }
+                    });
+                });
             }
             return { internalFormat, format };
         }
@@ -1080,57 +1205,97 @@ window.addEventListener('scroll', () => {
         return delta;
     }
 
-    function generateColor() {
-        // Mythical dark mist/fog colors - only deep, muted tones, no bright colors
-        const colorThemes = [
-            { r: 0.25, g: 0.15, b: 0.35 },  // Deep purple mist
-            { r: 0.15, g: 0.2, b: 0.3 },    // Dark blue fog
-            { r: 0.2, g: 0.15, b: 0.25 },   // Shadow violet
-            { r: 0.1, g: 0.15, b: 0.25 },   // Midnight blue
-            { r: 0.2, g: 0.2, b: 0.3 },     // Dark gray mist
-            { r: 0.18, g: 0.12, b: 0.28 },  // Shadowy purple
-            { r: 0.12, g: 0.18, b: 0.22 },  // Deep teal mist
-            { r: 0.15, g: 0.15, b: 0.2 }    // Dark slate fog
-        ];
-        return colorThemes[Math.floor(Math.random() * colorThemes.length)];
-    }
+    (function initVerticalScrollNav() {
+        if (!ENABLE_VERTICAL_SCROLL || ENABLE_SINGLE_CARD_SCROLL) return; // skip if single-card mode active
+        const container = document.getElementById('carouselCylinder');
+        if (!container) return;
+        const upBtn = document.getElementById('eventsPrevBtn');
+        const downBtn = document.getElementById('eventsNextBtn');
+        const cards = Array.from(container.querySelectorAll('.event-card-cylinder'));
+        let currentIndex = 0;
 
-    function HSVtoRGB(h, s, v) {
-        let r, g, b, i, f, p, q, t;
-        i = Math.floor(h * 6);
-        f = h * 6 - i;
-        p = v * (1 - s);
-        q = v * (1 - f * s);
-        t = v * (1 - (1 - f) * s);
-        switch (i % 6) {
-            case 0: r = v; g = t; b = p; break;
-            case 1: r = q; g = v; b = p; break;
-            case 2: r = p; g = v; b = t; break;
-            case 3: r = p; g = q; b = v; break;
-            case 4: r = t; g = p; b = v; break;
-            case 5: r = v; g = p; b = q; break;
+        function clamp(i){ return Math.max(0, Math.min(cards.length-1, i)); }
+
+        function scrollToIndex(i){
+            i = clamp(i);
+            currentIndex = i;
+            const targetTop = cards[i].offsetTop;
+            container.scrollTo({ top: targetTop, behavior: 'smooth' });
         }
-        return { r, g, b };
-    }
 
-    function wrap(value, min, max) {
-        const range = max - min;
-        if (range === 0) return min;
-        return ((value - min) % range) + min;
-    }
+        function updateCurrentIndexOnScroll(){
+            const scrollTop = container.scrollTop;
+            let nearest = 0; let nearestDist = Infinity;
+            cards.forEach((card, idx) => {
+                const dist = Math.abs(card.offsetTop - scrollTop);
+                if (dist < nearestDist){ nearestDist = dist; nearest = idx; }
+            });
+            currentIndex = nearest;
+        }
 
-    function getResolution(resolution) {
-        let aspectRatio = gl.drawingBufferWidth / gl.drawingBufferHeight;
-        if (aspectRatio < 1) aspectRatio = 1.0 / aspectRatio;
-        const min = Math.round(resolution);
-        const max = Math.round(resolution * aspectRatio);
-        if (gl.drawingBufferWidth > gl.drawingBufferHeight) return { width: max, height: min };
-        else return { width: min, height: max };
-    }
+        if (upBtn) upBtn.addEventListener('click', () => scrollToIndex(currentIndex - 1));
+        if (downBtn) downBtn.addEventListener('click', () => scrollToIndex(currentIndex + 1));
 
-    function scaleByPixelRatio(input) {
-        const pixelRatio = window.devicePixelRatio || 1;
-        return Math.floor(input * pixelRatio);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp') { scrollToIndex(currentIndex - 1); }
+            else if (e.key === 'ArrowDown') { scrollToIndex(currentIndex + 1); }
+            else if (e.key === 'PageUp') { scrollToIndex(currentIndex - 1); }
+            else if (e.key === 'PageDown') { scrollToIndex(currentIndex + 1); }
+            else if (e.key === 'Home') { scrollToIndex(0); }
+            else if (e.key === 'End') { scrollToIndex(cards.length - 1); }
+        });
+
+        let scrollTicking = false;
+        container.addEventListener('scroll', () => {
+            if (!scrollTicking){
+                scrollTicking = true;
+                requestAnimationFrame(() => { updateCurrentIndexOnScroll(); scrollTicking = false; });
+            }
+        });
+    })();
+
+    // ============================
+    // SINGLE CARD SCROLL MODE
+    // ============================
+    (function initSingleCardScroll(){
+        if(!ENABLE_SINGLE_CARD_SCROLL) return;
+        const container = document.getElementById('carouselCylinder');
+        if(!container) return;
+        const cards = Array.from(container.querySelectorAll('.event-card-cylinder'));
+        if(cards.length === 0) return;
+        const upBtn = document.getElementById('eventsPrevBtn');
+        const downBtn = document.getElementById('eventsNextBtn');
+        let currentIndex = 0;
+
+        function setActive(i){
+            if(i < 0 || i >= cards.length) return;
+            currentIndex = i;
+            cards.forEach((card, idx) => {
+                const isActive = idx === i;
+                card.classList.toggle('active', isActive);
+                card.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+            });
+            updateArrowState();
+        }
+
+        function updateArrowState(){
+            if(upBtn) upBtn.disabled = currentIndex === 0;
+            if(downBtn) downBtn.disabled = currentIndex === cards.length - 1;
+        }
+
+        // Initialize
+        setActive(0);
+
+        if(upBtn) upBtn.addEventListener('click', () => setActive(currentIndex - 1));
+        if(downBtn) downBtn.addEventListener('click', () => setActive(currentIndex + 1));
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp') { setActive(currentIndex - 1); }
+            else if (e.key === 'ArrowDown') { setActive(currentIndex + 1); }
+            else if (e.key === 'Home') { setActive(0); }
+            else if (e.key === 'End') { setActive(cards.length - 1); }
+        });
+    })();
     }
 
     function hashCode(s) {
