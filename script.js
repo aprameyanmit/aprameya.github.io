@@ -1259,12 +1259,16 @@ window.addEventListener('scroll', () => {
     // ============================
     (function initSingleCardScroll(){
         if(!ENABLE_SINGLE_CARD_SCROLL) return;
+        
         const container = document.getElementById('carouselCylinder');
         if(!container) return;
+        
         const cards = Array.from(container.querySelectorAll('.event-card-cylinder'));
         if(cards.length === 0) return;
+        
         const upBtn = document.getElementById('eventsPrevBtn');
         const downBtn = document.getElementById('eventsNextBtn');
+        
         let currentIndex = 0;
         let isAnimating = false;
 
@@ -1274,11 +1278,9 @@ window.addEventListener('scroll', () => {
                 card.setAttribute('aria-hidden', 'true');
             });
 
-            // Calculate positions with wrapping
             const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
             const nextIndex = (currentIndex + 1) % cards.length;
 
-            // Set classes
             cards[prevIndex].classList.add('prev');
             cards[currentIndex].classList.add('center');
             cards[currentIndex].setAttribute('aria-hidden', 'false');
@@ -1289,7 +1291,6 @@ window.addEventListener('scroll', () => {
             if(isAnimating) return;
             isAnimating = true;
             
-            // Infinite loop: wrap around
             if(direction === 'up'){
                 currentIndex = (currentIndex - 1 + cards.length) % cards.length;
             } else {
@@ -1297,11 +1298,9 @@ window.addEventListener('scroll', () => {
             }
             
             updateCarousel();
-            
             setTimeout(() => { isAnimating = false; }, 600);
         }
 
-        // Initialize
         updateCarousel();
 
         if(upBtn) upBtn.addEventListener('click', () => navigate('up'));
@@ -1310,23 +1309,7 @@ window.addEventListener('scroll', () => {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowUp' || e.key === 'PageUp') { navigate('up'); }
             else if (e.key === 'ArrowDown' || e.key === 'PageDown') { navigate('down'); }
-            else if (e.key === 'Home') { currentIndex = 0; updateCarousel(); }
-            else if (e.key === 'End') { currentIndex = cards.length - 1; updateCarousel(); }
         });
-
-        // Optional: Touch swipe support
-        let touchStartY = 0;
-        container.addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
-        }, {passive: true});
-        
-        container.addEventListener('touchend', (e) => {
-            const touchEndY = e.changedTouches[0].clientY;
-            const diff = touchStartY - touchEndY;
-            if(Math.abs(diff) > 50){
-                navigate(diff > 0 ? 'down' : 'up');
-            }
-        }, {passive: true});
     })();
     }
 
