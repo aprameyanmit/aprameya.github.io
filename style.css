@@ -2189,7 +2189,7 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(139, 92, 246, 0.03);
     backdrop-filter: blur(10px);
     border-radius: 30px;
-    padding: 40px 30px;
+    padding: 50px 60px;
     border: 2px solid rgba(139, 92, 246, 0.15);
     box-shadow: 
         0 10px 40px rgba(0, 0, 0, 0.2),
@@ -2268,6 +2268,42 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1;
 }
 
+.sponsor-logos.horizontal-split {
+    flex-direction: row;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.sponsor-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 40px;
+    background: rgba(139, 92, 246, 0.05);
+    border: 2px solid rgba(139, 92, 246, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    min-height: 200px;
+}
+
+.sponsor-group:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.08);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
+}
+
+.sponsor-group.left-group {
+    align-items: center;
+    justify-content: center;
+}
+
+.sponsor-group.right-group {
+    align-items: center;
+    justify-content: center;
+}
+
 .sponsor-row {
     display: flex;
     flex-direction: column;
@@ -2300,6 +2336,17 @@ h1, h2, h3, h4, h5, h6 {
     .sponsor-tier-heading {
         font-size: 1.7rem;
         letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sponsor-logos.horizontal-split {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .sponsor-group {
+        padding: 20px;
     }
 }
 
