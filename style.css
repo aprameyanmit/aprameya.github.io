@@ -905,8 +905,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px 10px 20px;
 }
 
-
-.event-card-cylinder {
+/* Base event card styles - ONLY for non-single-card-scroll modes */
+.events:not(.single-card-scroll) .event-card-cylinder {
     position: relative;
     flex: 0 0 320px;
     width: 320px;
@@ -923,12 +923,12 @@ h1, h2, h3, h4, h5, h6 {
     scroll-snap-align: start;
 }
 
-.event-card-cylinder.center {
+.events:not(.single-card-scroll) .event-card-cylinder.center {
     opacity: 1;
     z-index: auto;
 }
 
-.event-card-inner {
+.events:not(.single-card-scroll) .event-card-inner {
     width: 100%;
     height: 100%;
     background: linear-gradient(145deg, rgba(26, 26, 46, 0.98), rgba(16, 16, 36, 0.98));
@@ -947,7 +947,7 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: auto !important;
 }
 
-.event-card-cylinder.center .event-card-inner {
+.events:not(.single-card-scroll) .event-card-cylinder.center .event-card-inner {
     border-color: var(--cyan);
     box-shadow: 
         0 35px 90px rgba(0, 0, 0, 0.9),
@@ -1131,51 +1131,53 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .events.single-card-scroll .event-card-cylinder {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 500px;
-    background: rgba(20, 20, 30, 0.95);
-    border-radius: 20px;
-    padding: 24px;
-    border: 2px solid rgba(180, 168, 144, 0.3);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90% !important;
+    max-width: 500px !important;
+    background: rgba(20, 20, 30, 0.95) !important;
+    border-radius: 20px !important;
+    padding: 24px !important;
+    border: 2px solid rgba(180, 168, 144, 0.3) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 1 !important;
+    flex: none !important;
+    margin: 0 !important;
 }
 
 .events.single-card-scroll .event-card-cylinder.center {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 3;
-    filter: blur(0);
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 3 !important;
+    filter: blur(0) !important;
 }
 
 .events.single-card-scroll .event-card-cylinder.prev {
-    transform: translate(-50%, calc(-50% - 300px)) scale(0.8);
-    opacity: 0.4;
-    filter: blur(2px);
-    pointer-events: none;
-    z-index: 2;
+    transform: translate(-50%, calc(-50% - 300px)) scale(0.8) !important;
+    opacity: 0.4 !important;
+    filter: blur(2px) !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
 }
 
 .events.single-card-scroll .event-card-cylinder.next {
-    transform: translate(-50%, calc(-50% + 300px)) scale(0.8);
-    opacity: 0.4;
-    filter: blur(2px);
-    pointer-events: none;
-    z-index: 2;
+    transform: translate(-50%, calc(-50% + 300px)) scale(0.8) !important;
+    opacity: 0.4 !important;
+    filter: blur(2px) !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
 }
 
 .events.single-card-scroll .event-card-cylinder:first-of-type {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 3;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 3 !important;
 }
 
 .events.single-card-scroll .event-card-inner {
