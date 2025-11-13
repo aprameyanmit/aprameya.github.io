@@ -180,7 +180,7 @@ document.querySelectorAll('.fade-in').forEach(element => {
 });
 
 // ============================
-// HORIZONTAL SLIDER - Simple Left to Right with Infinite Loop
+// HORIZONTAL SLIDER - Centered Card with Side Preview
 // ============================
 const ENABLE_HORIZONTAL_SLIDER = document.querySelector('.events.horizontal-slider') !== null;
 
@@ -192,28 +192,33 @@ if (ENABLE_HORIZONTAL_SLIDER) {
     
     if (sliderTrack && cards.length > 0) {
         let currentIndex = 0;
-        const cardWidth = 380; // card width + gap
         
         function updateSlider() {
-            const offset = -currentIndex * cardWidth;
-            sliderTrack.style.transform = `translateX(${offset}px)`;
+            cards.forEach((card, index) => {
+                card.classList.remove('active', 'prev', 'next');
+                
+                if (index === currentIndex) {
+                    card.classList.add('active');
+                } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
+                    card.classList.add('prev');
+                } else if (index === (currentIndex + 1) % cards.length) {
+                    card.classList.add('next');
+                }
+            });
         }
         
         function slideNext() {
-            currentIndex++;
-            if (currentIndex >= cards.length) {
-                currentIndex = 0;
-            }
+            currentIndex = (currentIndex + 1) % cards.length;
             updateSlider();
         }
         
         function slidePrev() {
-            currentIndex--;
-            if (currentIndex < 0) {
-                currentIndex = cards.length - 1;
-            }
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
             updateSlider();
         }
+        
+        // Initialize
+        updateSlider();
         
         if (prevBtn) prevBtn.addEventListener('click', slidePrev);
         if (nextBtn) nextBtn.addEventListener('click', slideNext);
