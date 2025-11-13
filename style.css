@@ -906,6 +906,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateZ(0);
     will-change: transform, opacity;
     pointer-events: auto;
+    z-index: 100;
 }
 
 .event-card-cylinder.center {
@@ -1025,6 +1026,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
     pointer-events: auto !important;
     z-index: 300;
+    transform: translateZ(50px);
 }
 
 .event-card-cylinder.center .register-btn {
