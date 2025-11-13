@@ -180,6 +180,53 @@ document.querySelectorAll('.fade-in').forEach(element => {
 });
 
 // ============================
+// HORIZONTAL SLIDER - Simple Left to Right with Infinite Loop
+// ============================
+const ENABLE_HORIZONTAL_SLIDER = document.querySelector('.events.horizontal-slider') !== null;
+
+if (ENABLE_HORIZONTAL_SLIDER) {
+    const sliderTrack = document.getElementById('sliderTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const cards = document.querySelectorAll('.events.horizontal-slider .event-card');
+    
+    if (sliderTrack && cards.length > 0) {
+        let currentIndex = 0;
+        const cardWidth = 380; // card width + gap
+        
+        function updateSlider() {
+            const offset = -currentIndex * cardWidth;
+            sliderTrack.style.transform = `translateX(${offset}px)`;
+        }
+        
+        function slideNext() {
+            currentIndex++;
+            if (currentIndex >= cards.length) {
+                currentIndex = 0;
+            }
+            updateSlider();
+        }
+        
+        function slidePrev() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = cards.length - 1;
+            }
+            updateSlider();
+        }
+        
+        if (prevBtn) prevBtn.addEventListener('click', slidePrev);
+        if (nextBtn) nextBtn.addEventListener('click', slideNext);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') slidePrev();
+            if (e.key === 'ArrowRight') slideNext();
+        });
+    }
+}
+
+// ============================
 // 3D CYLINDRICAL CAROUSEL (scoped by .events.cyl-3d)
 // ============================
 const ENABLE_3D_CYLINDER = document.querySelector('.events.cyl-3d') !== null;

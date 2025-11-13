@@ -192,14 +192,15 @@
     </section>
 
     <!-- Events Section -->
-    <section class="events single-card-scroll" id="events">
+    <section class="events horizontal-slider" id="events">
         <h2 class="section-heading fade-in">Our Events</h2>
-        <div class="events-carousel-wrapper">
-            <div class="carousel-cylinder" id="carouselCylinder">
-                <div class="carousel-cylinder-inner">
-                        <!-- Event Card 1 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+        <div class="slider-container">
+            <button class="slider-btn prev" id="prevBtn" aria-label="Previous">‹</button>
+            <div class="slider-wrapper" id="sliderWrapper">
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Event Card 1 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/coding.png" alt="Phoenix Code">
                                 </div>
@@ -208,9 +209,9 @@
                                 <a href="events/phoenix-code.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 2 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 2 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/webdesgin.png" alt="Arachne WebWorks">
                                 </div>
@@ -219,9 +220,9 @@
                                 <a href="events/arachne-webworks.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 3 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 3 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/itquiz.png" alt="Sphinx Quest">
                                 </div>
@@ -230,9 +231,9 @@
                                 <a href="events/sphinx-quest.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 4 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 4 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/itmanager.png" alt="Griffin's Command">
                                 </div>
@@ -241,9 +242,9 @@
                                 <a href="events/griffins-command.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 5 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 5 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/techtalk.png" alt="Athena's Owl">
                                 </div>
@@ -252,9 +253,9 @@
                                 <a href="events/athenas-owl.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 6 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 6 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/pitchtalk.png" alt="Dragon's Den">
                                 </div>
@@ -263,9 +264,9 @@
                                 <a href="events/dragons-den.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 7 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 7 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/photography.png" alt="Pegasus Frames">
                                 </div>
@@ -274,9 +275,9 @@
                                 <a href="events/pegasus-frames.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 8 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 8 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/gaming.png" alt="Kraken Clash">
                                 </div>
@@ -285,9 +286,9 @@
                                 <a href="events/kraken-clash.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 9 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 9 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/sprise.png" alt="Chimera Chase">
                                 </div>
@@ -296,9 +297,9 @@
                                 <a href="events/chimera-chase.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                        <!-- Event Card 10 -->
-                        <div class="event-card-cylinder">
-                            <div class="event-card-inner">
+                    <!-- Event Card 10 -->
+                    <div class="event-card">
+                        <div class="event-card-content">
                                 <div class="event-image">
                                     <img src="images/hackathon.png" alt="Hydra Hacks">
                                 </div>
@@ -307,18 +308,9 @@
                                 <a href="events/hydra-hacks.html" class="register-btn">Know More</a>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
-            <!-- Slider Navigation -->
-            <div class="slider-nav vertical">
-                <button class="slider-nav-btn prev" id="eventsPrevBtn" aria-label="Scroll up">
-                    <span>↑</span>
-                </button>
-                <button class="slider-nav-btn next" id="eventsNextBtn" aria-label="Scroll down">
-                    <span>↓</span>
-                </button>
-            </div>
+            <button class="slider-btn next" id="nextBtn" aria-label="Next">›</button>
         </div>
     </section>
 
