@@ -868,7 +868,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px 20px 0;
-    pointer-events: none;
+    pointer-events: auto;
     z-index: 500;
     isolation: isolate;
 }
@@ -879,7 +879,7 @@ h1, h2, h3, h4, h5, h6 {
     perspective: 1400px;
     perspective-origin: 50% 50%;
     position: relative;
-    pointer-events: none;
+    pointer-events: auto;
     z-index: 500;
 }
 
@@ -891,7 +891,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 .event-card-cylinder {
@@ -1057,7 +1057,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     padding: 0 40px;
     pointer-events: none;
-    z-index: 150;
+    z-index: 2000;
 }
 
 .carousel-nav-btn {
@@ -1076,6 +1076,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    z-index: 2001;
 }
 
 .carousel-nav-btn:hover {
