@@ -921,11 +921,11 @@
 
         <!-- Beautiful Register Button -->
         <div class="register-section">
-            <a href="https://forms.gle/fhKyL8XKonf84MN66" target="_blank" class="beautiful-register-btn">
-                <span class="btn-text">Register Now</span>
-                <span class="btn-icon">🚀</span>
+            <div class="beautiful-register-btn" style="background: linear-gradient(135deg, #666, #999); cursor: not-allowed; opacity: 0.7;">
+                <span class="btn-text">Registration Closed</span>
+                <span class="btn-icon">🔒</span>
                 <div class="btn-glow"></div>
-            </a>
+            </div>
         </div>
 
         <!-- Two Column Layout: Registration & Prizes -->
@@ -1170,11 +1170,6 @@
             }
         }
         createParticles();
-
-        // Registration Deadline Alert
-        window.addEventListener('load', function() {
-            alert('⏰ Important: Registration for Hydra Hacks closes on 14th November 2025 at 11:59 PM. Register now!');
-        });
 
         // Video Player Controls
         const video = document.getElementById('hackathonVideo');
