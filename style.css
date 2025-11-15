@@ -1805,6 +1805,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================
+   PHONE NUMBER LINK COLOR FIX (iOS Safari)
+   Ensures auto-linked phone numbers aren't dark blue
+   ============================ */
+a[href^="tel"],
+a[href^="tel"]:link,
+a[href^="tel"]:visited {
+    color: var(--cyan) !important;
+    text-decoration: none !important;
+}
+
+.coordinator-contact,
+.member-contact,
+.contact {
+    color: var(--cyan);
+}
+
+.coordinator-contact a,
+.member-contact a,
+.contact a {
+    color: var(--cyan) !important;
+    text-decoration: none !important;
+}
+
+/* ============================
    GENERAL RULES SECTION
    ============================ */
 .rules {
