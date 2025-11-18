@@ -910,6 +910,27 @@ h1, h2, h3, h4, h5, h6 {
     .schedule-table td, .schedule-table th { padding: 12px; }
 }
 
+/* Mobile optimizations for schedule table */
+@media (max-width: 560px) {
+    .schedule { padding: 0 8px; }
+    .schedule-table { font-size: 0.95rem; }
+    .schedule-table td, .schedule-table th { padding: 10px; }
+    .schedule-table .time-band { font-size: 0.9rem; }
+    .schedule-table .slot .event { font-size: 0.95rem; }
+    .schedule-table .slot .meta { font-size: 0.82rem; }
+    .schedule-table colgroup col:nth-child(1),
+    .schedule-table colgroup col:nth-child(3) {
+        width: 46% !important;
+    }
+    .schedule-table colgroup col:nth-child(2) {
+        width: 8% !important;
+    }
+    .schedule-table .lunch { min-width: 64px; }
+    .schedule-table .lunch .lunch-stack { min-height: 140px; gap: 3px; }
+    .schedule-table .lunch .lunch-stack span { font-size: 1rem; }
+    .schedule-table .lunch .lunch-stack small { margin-top: 6px; font-size: 0.8rem; }
+}
+
 /* ============================
    ABOUT SECTION
    ============================ */
