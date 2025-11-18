@@ -843,6 +843,29 @@ h1, h2, h3, h4, h5, h6 {
     border-right: 1px solid rgba(180,168,144,0.25);
     position: relative;
 }
+
+.schedule-table .lunch .lunch-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 320px;
+}
+
+.schedule-table .lunch .lunch-stack span {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.schedule-table .lunch .lunch-stack small {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    color: rgba(255, 152, 0, 0.9);
+}
 .schedule-table .lunch span {
     display: inline-block;
     color: #fbbf24;
