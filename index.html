@@ -66,10 +66,10 @@
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#events" class="nav-link">Events</a></li>
                     <li class="dropdown">
-                        <a href="schedule.html#day1" class="nav-link dropdown-toggle">Schedule</a>
+                        <a href="#schedule-day1" class="nav-link dropdown-toggle">Schedule</a>
                         <ul class="dropdown-menu">
-                            <li><a href="schedule.html#day1" class="dropdown-item">Day 1</a></li>
-                            <li><a href="schedule.html#day2" class="dropdown-item">Day 2</a></li>
+                            <li><a href="#schedule-day1" class="dropdown-item">Day 1</a></li>
+                            <li><a href="#schedule-day2" class="dropdown-item">Day 2</a></li>
                         </ul>
                     </li>
                     <li><a href="committee.html" class="nav-link">Coordinators</a></li>
@@ -112,22 +112,20 @@
                     Events
                 </a>
             </li>
+            <li class="menu-item dropdown">
+                <a href="#schedule-day1" class="menu-link">
+                    <span class="menu-icon">🗓️</span>
+                    Schedule
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#schedule-day1" class="dropdown-link">Day 1</a>
+                    <a href="#schedule-day2" class="dropdown-link">Day 2</a>
+                </div>
+            </li>
             <li class="menu-item">
                 <a href="committee.html" class="menu-link">
                     <span class="menu-icon">👥</span>
                     Coordinators
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="schedule.html#day1" class="menu-link">
-                    <span class="menu-icon">🗓️</span>
-                    Schedule — Day 1
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="schedule.html#day2" class="menu-link">
-                    <span class="menu-icon">🗓️</span>
-                    Schedule — Day 2
                 </a>
             </li>
             <li class="menu-item">
@@ -183,6 +181,171 @@
             
             <div class="scroll-indicator">
                 <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule" id="schedule">
+        <div class="container">
+            <h2 class="section-heading fade-in">Event Schedule</h2>
+
+            <!-- Day 1 Schedule -->
+            <div class="schedule-wrapper" id="schedule-day1">
+                <h3 class="schedule-title">Day 1 — 21 Nov 2025</h3>
+                <table class="schedule-table" aria-label="Day 1 Schedule">
+                    <colgroup>
+                        <col style="width:45%">
+                        <col style="width:10%">
+                        <col style="width:45%">
+                    </colgroup>
+                    <tbody>
+                        <!-- Row 1: Full width header -->
+                        <tr>
+                            <th class="full" colspan="3">Day 1 Schedule — 21/11/2025</th>
+                        </tr>
+                        <!-- Row 2: Full width registration + inauguration -->
+                        <tr>
+                            <td class="full" colspan="3">
+                                <strong>Registration:</strong> 8:00 AM – 9:15 AM &nbsp; | &nbsp;
+                                <strong>Inauguration:</strong> 9:15 AM &nbsp;—&nbsp; Vishveshvaraya Auditorium
+                            </td>
+                        </tr>
+                        <!-- Row 3: Time bands with lunch spanning middle column → covers rows 3–11 -->
+                        <tr>
+                            <td class="time-band"><strong>10:30 AM – 1:00 PM</strong></td>
+                            <td class="lunch" rowspan="9"><span>Lunch<br>1:00 PM – 2:00 PM</span></td>
+                            <td class="time-band"><strong>2:00 PM – 4:30 PM</strong></td>
+                        </tr>
+                        <!-- Row 4: Phoenix Code -->
+                        <tr>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 1 — Phoenix Code</div>
+                                    <div class="meta">Rooms: 175, 176</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 2 — Phoenix Code</div>
+                                    <div class="meta">Rooms: 176, 177</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 5: Arachne WebWorks -->
+                        <tr>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 1 — Arachne WebWorks</div>
+                                    <div class="meta">Rooms: 146, 147</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 2 — Arachne WebWorks</div>
+                                    <div class="meta">Rooms: 146, 147</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 6: Sphinx Quest (quiz) -->
+                        <tr>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 1 — Sphinx Quest</div>
+                                    <div class="meta">Rooms: TBA</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 2 — Sphinx Quest</div>
+                                    <div class="meta">Rooms: TBA</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 7: Griffin's Command -->
+                        <tr>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 1 — Griffin's Command</div>
+                                    <div class="meta">Room: TBA</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 2 — Griffin's Command</div>
+                                    <div class="meta">Room: TBA</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 8: Athena's Owl -->
+                        <tr>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 1 — Athena's Owl</div>
+                                    <div class="meta">Room: TBA</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 2 — Athena's Owl</div>
+                                    <div class="meta">Room: TBA</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 9: Dragon's Den (afternoon only) -->
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 1 — Dragon's Den</div>
+                                    <div class="meta">APJ Abdul Kalam Auditorium</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 10: Kraken Clash (Gaming) -->
+                        <tr>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 1 — Kraken Clash</div>
+                                    <div class="meta">Room: 413</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 2 — Kraken Clash</div>
+                                    <div class="meta">Room: 413</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 11: Chimera Chase -->
+                        <tr>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 1 — Chimera Chase</div>
+                                    <div class="meta">Room: 421</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slot">
+                                    <div class="event">Round 2 — Chimera Chase</div>
+                                    <div class="meta">Room: 421</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 12: Full width note (Photography) -->
+                        <tr>
+                            <td class="full note" colspan="3">
+                                Photography (Pegasus Frames): Ongoing slots throughout the day
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Day 2 placeholder -->
+            <div class="schedule-wrapper" id="schedule-day2">
+                <h3 class="schedule-title">Day 2 — 22 Nov 2025</h3>
+                <p class="coming-soon">Schedule will be published soon.</p>
             </div>
         </div>
     </section>

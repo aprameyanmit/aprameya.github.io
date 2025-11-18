@@ -788,6 +788,96 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================
+   SCHEDULE SECTION
+   ============================ */
+.schedule {
+    padding: 40px 0 60px;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.0) 0%, rgba(26, 26, 46, 0.25) 100%);
+}
+
+.schedule-title {
+    font-family: 'Cinzel', serif;
+    color: var(--cyan);
+    margin: 10px 0 20px;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(16, 16, 36, 0.95));
+    border: 1px solid rgba(180, 168, 144, 0.25);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.schedule-table th.full,
+.schedule-table td.full {
+    text-align: center;
+    padding: 16px 18px;
+    color: var(--text-primary);
+    background: rgba(139, 92, 246, 0.08);
+    border-bottom: 1px solid rgba(180,168,144,0.25);
+}
+
+.schedule-table td {
+    padding: 14px 16px;
+    color: var(--text-secondary);
+    vertical-align: top;
+    border-bottom: 1px solid rgba(180,168,144,0.15);
+}
+
+.schedule-table tr:last-child td { border-bottom: none; }
+
+.schedule-table .time-band {
+    color: var(--cyan);
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+}
+
+.schedule-table .lunch {
+    text-align: center;
+    background: rgba(251, 191, 36, 0.08);
+    border-left: 1px solid rgba(180,168,144,0.25);
+    border-right: 1px solid rgba(180,168,144,0.25);
+    position: relative;
+}
+.schedule-table .lunch span {
+    display: inline-block;
+    color: #fbbf24;
+    font-weight: 700;
+}
+
+.schedule-table .slot .event {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+.schedule-table .slot .meta {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.schedule .coming-soon {
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 16px;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .schedule-table colgroup col:nth-child(1),
+    .schedule-table colgroup col:nth-child(3) {
+        width: 42% !important;
+    }
+    .schedule-table colgroup col:nth-child(2) {
+        width: 16% !important;
+    }
+    .schedule-table td, .schedule-table th { padding: 12px; }
+}
+
+/* ============================
    ABOUT SECTION
    ============================ */
 .about {
