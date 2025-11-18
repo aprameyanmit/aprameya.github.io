@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aprameya 2025 — Event Schedule (21–22 Nov 2025)</title>
+<style>
+  :root{
+    --accent:#2b6cb0;
+    --muted:#666;
+    --bg:#f7f9fc;
+    --card:#fff;
+    --border:#e2e8f0;
+    --radius:8px;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:#111;
+    padding:24px;
+  }
+
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:18px;
+  }
+  .title{
+    background:linear-gradient(90deg, rgba(43,108,176,0.06), transparent);
+    padding:12px 16px;
+    border-radius:var(--radius);
+  }
+  .title h1{ margin:0; font-size:20px;}
+  .title p{ margin:6px 0 0; color:var(--muted); font-size:14px; }
+
+  .controls{ text-align:right; }
+  .controls button{
+    background:var(--accent);
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+  }
+
+  /* Grid schedule */
+  .day-switch { display:flex; gap:8px; margin-bottom:12px; }
+  .day-switch button{
+    padding:8px 12px;
+    border:1px solid var(--border);
+    background:white;
+    border-radius:6px;
+    cursor:pointer;
+  }
+  .day-switch button.active{
+    background:var(--accent);
+    color:white;
+    border-color:var(--accent);
+  }
+
+  .schedule {
+    background:var(--card);
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    padding:12px;
+    box-shadow:0 6px 18px rgba(20,20,30,0.03);
+  }
+
+  .grid {
+    display:grid;
+    grid-template-columns: 1fr 90px 1fr;
+    gap:12px;
+    align-items:start;
+  }
+
+  .col {
+    border-radius:6px;
+    padding:8px;
+  }
+
+  .col .slot {
+    border:1px dashed var(--border);
+    background:linear-gradient(180deg, #fff, #fbfdff);
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:6px;
+  }
+  .col .slot .time{ font-weight:600; color:var(--accent); font-size:13px; }
+  .col .slot .event{ margin-top:6px; color:#111; font-weight:600; }
+  .col .slot .room{ color:var(--muted); font-size:13px; margin-top:4px; }
+
+  .lunch{
+    text-align:center;
+    padding:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    color:var(--muted);
+    border-radius:6px;
+    background:linear-gradient(180deg,#fff,#fcfcfe);
+    border:1px solid var(--border);
+  }
+
+  .legend{
+    margin-top:8px;
+    font-size:13px;
+    color:var(--muted);
+  }
+
+  /* Mobile: collapse to cards */
+  @media (max-width:720px){
+    .grid{ grid-template-columns:1fr; }
+    .lunch{ order:10; }
+    header{ flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title">
+        <h1>TechFest Schedule — Day 1 & Day 2</h1>
+        <p>21–22 Nov 2025 · Main venues: Vishweshwaraya Auditorium, APJ Auditorium · Room numbers: 176,177,146,147,338,339,340,413,421</p>
+      </div>
+      <div class="controls">
+        <div style="font-size:13px;color:var(--muted);margin-bottom:6px">Photography: 9:00–17:00 · Hackathon: 9:00–17:00</div>
+        <button onclick="window.print()">Print Schedule</button>
+      </div>
+    </header>
+
+    <div class="day-switch">
+      <button id="day1Btn" class="active" onclick="showDay(1)">Day 1 — 21/11/25</button>
+      <button id="day2Btn" onclick="showDay(2)">Day 2 — 22/11/25</button>
+    </div>
+
+    <!-- Day 1 -->
+    <section id="day1" class="schedule" aria-labelledby="day1Btn">
+      <div class="grid">
+        <!-- left column -->
+        <div class="col">
+          <div class="slot">
+            <div class="time">Registration • 8:00 — 9:15</div>
+            <div class="event">Registration</div>
+            <div class="room">Main entrance</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">10:30 — 13:00 (Round 1)</div>
+            <div class="event">Phoenix Code</div>
+            <div class="room">Rooms: 176, 177</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">10:30 — 13:00 (Round 1)</div>
+            <div class="event">Archanoe Webworks</div>
+            <div class="room">Rooms: 146, 147</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">10:30 — 13:00 (Round 1)</div>
+            <div class="event">Sphinx Quest</div>
+            <div class="room">Room: 338</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">10:30 — 13:00 (Round 1)</div>
+            <div class="event">Griffin Command</div>
+            <div class="room">Room: 340</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">10:30 — 13:00 (Round 1)</div>
+            <div class="event">Athena's Owl</div>
+            <div class="room">Room: 339</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">10:30 — 13:00 (Round 1)</div>
+            <div class="event">Kraken Clash</div>
+            <div class="room">Room: 413</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">10:30 — 13:00 (Round 1)</div>
+            <div class="event">Chimera Chase</div>
+            <div class="room">Room: 421</div>
+          </div>
+        </div>
+
+        <!-- lunch column -->
+        <div class="col">
+          <div class="lunch">LUNCH • 1:00 — 2:00</div>
+        </div>
+
+        <!-- right column -->
+        <div class="col">
+          <div class="slot">
+            <div class="time">9:15 • INAUGURATION</div>
+            <div class="event">Inauguration</div>
+            <div class="room">Vishweshwaraya Auditorium</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:00 — 16:30 (Round 2)</div>
+            <div class="event">Phoenix Code (Round 2)</div>
+            <div class="room">Rooms: 176, 177</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:00 — 16:30 (Round 2)</div>
+            <div class="event">Archanoe Webworks (Round 2)</div>
+            <div class="room">Rooms: 146, 147</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:00 — 16:30 (Round 2)</div>
+            <div class="event">Sphinx Quest (Round 2)</div>
+            <div class="room">Room: 338</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:00 — 16:30 (Round 2)</div>
+            <div class="event">Griffin Command (Round 2)</div>
+            <div class="room">Room: 340</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:00 — 16:30 (Round 2)</div>
+            <div class="event">Athena's Owl (Round 2)</div>
+            <div class="room">Room: 339</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:00 — 16:30</div>
+            <div class="event">Dragon's Den (Round 1)</div>
+            <div class="room">APJ Auditorium</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:00 — 16:30 (Round 2)</div>
+            <div class="event">Kraken Clash (Round 2)</div>
+            <div class="room">Room: 413</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:00 — 16:30 (Round 2)</div>
+            <div class="event">Chimera Chase (Round 2)</div>
+            <div class="room">Room: 421</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">
+        Tip: Edit the event names, times, and rooms directly in the HTML. Photography & Hackathon run throughout the day (9:00–17:00).
+      </div>
+    </section>
+
+    <!-- Day 2 -->
+    <section id="day2" class="schedule" style="display:none;margin-top:12px;" aria-labelledby="day2Btn">
+      <div class="grid">
+        <div class="col">
+          <div class="slot">
+            <div class="time">9:30 — 12:30 (Round 3)</div>
+            <div class="event">Griffin Command (Round 3)</div>
+            <div class="room">Room: 339</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">9:30 — 12:30 (Round 3)</div>
+            <div class="event">Phoenix Code (Round 3)</div>
+            <div class="room">Rooms: 176, 177</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">9:30 — 12:30 (Round 3)</div>
+            <div class="event">Archanoe Webworks (Round 3)</div>
+            <div class="room">Rooms: 146,147</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">9:30 — 12:30 (Round 3)</div>
+            <div class="event">Sphinx Quest (Round 3)</div>
+            <div class="room">Room: 338</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">9:30 — 12:30</div>
+            <div class="event">Athena's Owl</div>
+            <div class="room">Room: 339</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">9:30 — 12:30</div>
+            <div class="event">Dragon's Den</div>
+            <div class="room">APJ Auditorium</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">9:30 — 12:30</div>
+            <div class="event">Kraken Clash</div>
+            <div class="room">Room: 413</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">9:30 — 12:30</div>
+            <div class="event">Chimera Chase</div>
+            <div class="room">Room: 421</div>
+          </div>
+        </div>
+
+        <div class="col"><div class="lunch">LUNCH • 12:30 — 14:00</div></div>
+
+        <div class="col">
+          <div class="slot">
+            <div class="time">14:00 — 15:30</div>
+            <div class="event">Griffin Command — Finals</div>
+            <div class="room">Vishweshwaraya Auditorium</div>
+          </div>
+
+          <div class="slot">
+            <div class="time">15:30 onwards</div>
+            <div class="event">Valedictory</div>
+            <div class="room">Vishweshwaraya Auditorium</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">Valedictory begins at 3:30 PM in Vishweshwaraya Auditorium (as per the hand schedule).</div>
+    </section>
+
+  </div>
+
+<script>
+  function showDay(n){
+    document.getElementById('day1').style.display = n===1 ? '' : 'none';
+    document.getElementById('day2').style.display = n===2 ? '' : 'none';
+    document.getElementById('day1Btn').classList.toggle('active', n===1);
+    document.getElementById('day2Btn').classList.toggle('active', n===2);
+  }
+  // default: set from hash if present
+  (function(){
+    var hash = (location.hash || '').toLowerCase();
+    if(hash.includes('day2')){ showDay(2); }
+    else { showDay(1); }
+  })();
+</script>
+</body>
+</html>
