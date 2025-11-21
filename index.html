@@ -11,7 +11,20 @@
 </head>
 <body>
 
-    <!-- Hydra popup removed (registrations closed) -->
+    <!-- Registration Closed Popup -->
+    <div id="registrationClosedPopup" class="floating-popup-card" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10000; background: linear-gradient(135deg, rgba(139, 0, 0, 0.95), rgba(75, 0, 0, 0.95)); backdrop-filter: blur(10px); border: 2px solid rgba(220, 20, 60, 0.6); border-radius: 20px; padding: 40px; max-width: 500px; box-shadow: 0 20px 60px rgba(220, 20, 60, 0.4); animation: popupFloat 0.5s ease-out;">
+        <button id="closeRegistrationPopup" style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: #ff6b6b; font-size: 32px; cursor: pointer; padding: 5px 10px; line-height: 1; transition: all 0.3s ease; font-weight: bold;">&times;</button>
+        <div style="text-align: center;">
+            <div style="font-size: 60px; margin-bottom: 20px;">⚠️</div>
+            <h2 style="color: #fff; font-size: 2em; margin-bottom: 15px; font-family: 'Cinzel', serif;">Registrations Closed</h2>
+            <p style="color: #ffb3b3; font-size: 1.2em; line-height: 1.6; margin-bottom: 20px;">
+                All event registrations for Aprameya-2k25 are now closed. Thank you for your interest!
+            </p>
+            <p style="color: #ff8080; font-size: 1em; line-height: 1.5;">
+                Get ready for an amazing experience on <strong>November 21-22, 2025</strong>!
+            </p>
+        </div>
+    </div>
 
     <!-- Particle Background -->
     <div class="particles" id="particles"></div>
@@ -512,29 +525,50 @@
 
     <script src="script.js"></script>
     <script>
-        // Hackathon Floating Card Close Handler
+        // Registration Closed Popup Handler
         document.addEventListener('DOMContentLoaded', function() {
-            const hackathonCard = document.getElementById('hackathonCard');
-            const closeBtn = document.getElementById('closeHackathonCard');
+            const registrationPopup = document.getElementById('registrationClosedPopup');
+            const closeBtn = document.getElementById('closeRegistrationPopup');
             
-            if (closeBtn && hackathonCard) {
+            if (closeBtn && registrationPopup) {
                 closeBtn.addEventListener('click', function() {
-                    hackathonCard.style.animation = 'floatOut 0.5s ease-out forwards';
+                    registrationPopup.style.animation = 'popupOut 0.5s ease-out forwards';
                     setTimeout(() => {
-                        hackathonCard.style.display = 'none';
+                        registrationPopup.style.display = 'none';
                     }, 500);
+                });
+                
+                // Close button hover effect
+                closeBtn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'rotate(90deg) scale(1.2)';
+                    this.style.color = '#fff';
+                });
+                closeBtn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'rotate(0) scale(1)';
+                    this.style.color = '#ff6b6b';
                 });
             }
         });
     </script>
     <style>
-        @keyframes floatOut {
+        @keyframes popupFloat {
             0% {
-                transform: translateY(0) scale(1);
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes popupOut {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
             }
             100% {
-                transform: translateY(100px) scale(0.8);
+                transform: translate(-50%, -50%) scale(0.8);
                 opacity: 0;
             }
         }
